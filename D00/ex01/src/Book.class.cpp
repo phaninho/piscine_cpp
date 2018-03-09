@@ -35,7 +35,7 @@ void Book::go(void)
     else if (action == "ADD")
       Book::add();
     else if (action == "SEARCH")
-      cout << "recherche de contact" << endl;
+      Book::search();
   }
   cout << "sortie du programme" << endl;
 }
@@ -43,6 +43,7 @@ void Book::go(void)
 void Book::add(void)
 {
   string entry;
+
   cout << "entrer " << Contact.getf_name() << " : ";
   getline(cin, entry);
   Contact.setf_name(entry);
@@ -77,5 +78,23 @@ void Book::add(void)
   getline(cin, entry);
   Contact.setsecret(entry);
 
-  cout << Contact.getf_name() << endl << Contact.getl_name() << endl << Contact.getn_name() << endl << Contact.getlogin() << endl << Contact.getadress() << endl << Contact.getmail() << endl << Contact.getphone() << endl << Contact.getb_date() << endl << Contact.getf_meal() << endl << Contact.getunder_color() << endl << Contact.getsecret() << endl;
+  Contact.set_id();
+  // cout << Contact.get_id() << endl;
+
+  //
+  // cout << Contact.getf_name() << endl << Contact.getl_name() << endl << Contact.getn_name() << endl << Contact.getlogin() << endl << Contact.getadress() << endl << Contact.getmail() << endl << Contact.getphone() << endl << Contact.getb_date() << endl << Contact.getf_meal() << endl << Contact.getunder_color() << endl << Contact.getsecret() << endl;
+}
+
+void	Book::search(void) const
+{
+  int id = Contact.get_id();
+  cout << "___________________________________________" << endl;
+  cout << "| id |  first name | last name | nickname  |" << endl;
+  cout << "|____|_____________|___________|___________|" << endl;
+  if (id > 0)
+  {
+    cout << "| " << id - 1 << " | " << Contact.getf_name() << " | " << Contact.getl_name() << " | " << Contact.getn_name() << " |" << endl;
+    cout << "|_________________________________________|" << endl;
+
+  }
 }

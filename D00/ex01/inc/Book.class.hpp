@@ -15,6 +15,7 @@ class Book
 
   void go(void);
   void add(void);
+  void search(void) const;
 };
 
 #endif

@@ -21,6 +21,7 @@ class Contact
   string _f_meal;
   string _under_color;
   string _secret;
+  int    _id;
 
   public:
 
@@ -38,6 +39,7 @@ class Contact
   string  const getf_meal(void) const;
   string  const getunder_color(void) const;
   string  const getsecret(void) const;
+  int     get_id(void) const;
   void    setf_name(string const f_name);
   void    setl_name(string const l_name);
   void    setn_name(string const n_name);
@@ -49,6 +51,7 @@ class Contact
   void    setf_meal(string const f_meal);
   void    setunder_color(string const under_color);
   void    setsecret(string const secret);
+  void	  set_id(void);
 };
 
 #endif

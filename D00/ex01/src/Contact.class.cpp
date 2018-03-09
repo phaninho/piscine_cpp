@@ -16,7 +16,8 @@ Contact::Contact(void) :
   _b_date("birth date"),
   _f_meal("favorite meal"),
   _under_color("underwear color"),
-  _secret("secret")
+  _secret("secret"),
+  _id(0)
 {
   return;
 }
@@ -80,6 +81,12 @@ string  const Contact::getsecret(void) const
 {
   return (this->_secret);
 }
+
+int      Contact::get_id(void) const
+{
+  return (this->_id);
+}
+
 
 void    Contact::setf_name(string const f_name)
 {
@@ -145,4 +152,9 @@ void    Contact::setsecret(string const secret)
 {
   if (!secret.empty())
     this->_secret = secret;
+}
+
+void	 Contact::set_id(void)
+{
+  this->_id++;
 }
