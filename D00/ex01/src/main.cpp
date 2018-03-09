@@ -3,41 +3,36 @@
 #include <iostream>
 #include <string>
 
-using std::string;
-using std::cout;
-using std::cin;
-using std::endl;
-
 int   main(void)
 {
 
   Book book;
 
-  cout << "         ___________ " << endl;
-  cout << "      = /  _______  \\" << endl;
-  cout << "     8 |__|       |__|" << endl;
-  cout << "     8  _||_______||_" << endl;
-  cout << "     8 |             |" << endl;
-  cout << "     8 |     ___     |" << endl;
-  cout << "     8 |    /234\\    |" << endl;
-  cout << "     8 |   |1   5|   |" << endl;
-  cout << "     8 |    \\876/    |" << endl;
-  cout << "      \\|             |" << endl;
-  cout << "       |_____________|" << endl;
-  cout << "        |__|     |__|" << endl;
+  std::cout << "         ___________ " << std::endl;
+  std::cout << "      = /  _______  \\" << std::endl;
+  std::cout << "     8 |__|       |__|" << std::endl;
+  std::cout << "     8  _||_______||_" << std::endl;
+  std::cout << "     8 |             |" << std::endl;
+  std::cout << "     8 |     ___     |" << std::endl;
+  std::cout << "     8 |    /234\\    |" << std::endl;
+  std::cout << "     8 |   |1   5|   |" << std::endl;
+  std::cout << "     8 |    \\876/    |" << std::endl;
+  std::cout << "      \\|             |" << std::endl;
+  std::cout << "       |_____________|" << std::endl;
+  std::cout << "        |__|     |__|" << std::endl;
 
-  // string buf;
+  // std::string buf;
   // Contact first;
-  cout << endl << "   Bienvenue dans PhoneBook!" << endl << endl;
-  cout << "Entrez une des commandes suivantes:" << endl;
-  cout << " # ADD (ajouter un contact)" << endl << " # SEARCH (chercher un contact)" << endl << " # EXIT (sortir et supprimer tous les contacts)" << endl;
+  std::cout << std::endl << "   Bienvenue dans PhoneBook!" << std::endl << std::endl;
+  std::cout << "Entrez une des commandes suivantes:" << std::endl;
+  std::cout << " # ADD (ajouter un contact)" << std::endl << " # SEARCH (chercher un contact)" << std::endl << " # EXIT (sortir et supprimer tous les contacts)" << std::endl;
 
   book.go();
-  // cout << first.getf_name() << endl;
-  // cin >> buf;
+  // std::cout << first.getf_name() << std::endl;
+  // std::cin >> buf;
   // first.setf_name(buf);
-  // cin >> buf;
+  // std::cin >> buf;
   // first.setl_name(buf);
-  // cout << first.getf_name() << ' ' << first.getl_name() << endl;
+  // std::cout << first.getf_name() << ' ' << first.getl_name() << std::endl;
   return (0);
 }

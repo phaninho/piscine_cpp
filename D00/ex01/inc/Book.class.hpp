@@ -3,7 +3,6 @@
 
 #include <string>
 
-using std::string;
 
 class Book
 {
@@ -12,10 +11,14 @@ class Book
 
   Book(void);
   ~Book(void);
-
   void go(void);
+
+  private:
+
   void add(void);
-  void search(void) const;
+  void search(void);
+  std::string w_str(size_t len);
+
 };
 
 #endif
