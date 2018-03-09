@@ -14,6 +14,7 @@ class Book
   ~Book(void);
 
   void go(void);
+  void add(void);
 };
 
 #endif

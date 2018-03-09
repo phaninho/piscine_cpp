@@ -1,4 +1,5 @@
 #include "Book.class.hpp"
+#include "Contact.class.hpp"
 #include <iostream>
 #include <string>
 
@@ -7,6 +8,9 @@ using std::cout;
 using std::cin;
 using std::endl;
 using std::getline;
+
+
+Contact Contact;
 
 Book::Book(void)
 {
@@ -29,9 +33,49 @@ void Book::go(void)
     if (action == "EXIT")
       out = 1;
     else if (action == "ADD")
-      cout << "ajout de contact" << endl;
+      Book::add();
     else if (action == "SEARCH")
       cout << "recherche de contact" << endl;
   }
   cout << "sortie du programme" << endl;
+}
+
+void Book::add(void)
+{
+  string entry;
+  cout << "entrer " << Contact.getf_name() << " : ";
+  getline(cin, entry);
+  Contact.setf_name(entry);
+  cout << "entrer " << Contact.getl_name() << " : ";
+  getline(cin, entry);
+  Contact.setl_name(entry);
+  cout << "entrer " << Contact.getn_name() << " : ";
+  getline(cin, entry);
+  Contact.setn_name(entry);
+  cout << "entrer " << Contact.getlogin() << " : ";
+  getline(cin, entry);
+  Contact.setlogin(entry);
+  cout << "entrer " << Contact.getadress() << " : ";
+  getline(cin, entry);
+  Contact.setadress(entry);
+  cout << "entrer " << Contact.getmail() << " : ";
+  getline(cin, entry);
+  Contact.setmail(entry);
+  cout << "entrer " << Contact.getphone() << " : ";
+  getline(cin, entry);
+  Contact.setphone(entry);
+  cout << "entrer " << Contact.getb_date() << " : ";
+  getline(cin, entry);
+  Contact.setb_date(entry);
+  cout << "entrer " << Contact.getf_meal() << " : ";
+  getline(cin, entry);
+  Contact.setf_meal(entry);
+  cout << "entrer " << Contact.getunder_color() << " : ";
+  getline(cin, entry);
+  Contact.setunder_color(entry);
+  cout << "entrer " << Contact.getsecret() << " : ";
+  getline(cin, entry);
+  Contact.setsecret(entry);
+
+  cout << Contact.getf_name() << endl << Contact.getl_name() << endl << Contact.getn_name() << endl << Contact.getlogin() << endl << Contact.getadress() << endl << Contact.getmail() << endl << Contact.getphone() << endl << Contact.getb_date() << endl << Contact.getf_meal() << endl << Contact.getunder_color() << endl << Contact.getsecret() << endl;
 }
