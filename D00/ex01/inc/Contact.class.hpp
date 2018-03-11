@@ -19,7 +19,6 @@ class Contact
   std::string _f_meal;
   std::string _under_color;
   std::string _secret;
-  int    _id;
 
   public:
 
@@ -37,7 +36,7 @@ class Contact
   std::string  const getf_meal(void) const;
   std::string  const getunder_color(void) const;
   std::string  const getsecret(void) const;
-  int     get_id(void) const;
+
   void    setf_name(std::string const f_name);
   void    setl_name(std::string const l_name);
   void    setn_name(std::string const n_name);
@@ -49,7 +48,6 @@ class Contact
   void    setf_meal(std::string const f_meal);
   void    setunder_color(std::string const under_color);
   void    setsecret(std::string const secret);
-  void	  set_id(void);
 };
 
 #endif

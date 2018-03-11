@@ -15,10 +15,13 @@ class Book
 
   private:
 
-  void add(void);
-  void search(void);
-  std::string w_str(size_t len);
+  void _add(void);
+  void _search(void);
+  std::string _w_str(size_t len);
+  int     _get_id(void) const;
+  void	  _set_id(void);
 
+  int _id;
 };
 
 #endif

@@ -3,9 +3,9 @@
 #include <iostream>
 #include <string>
 
-Contact Contact;
+Contact Contact[8];
 
-Book::Book(void)
+Book::Book(void) : _id(0)
 {
   return ;
 }
@@ -26,59 +26,72 @@ void Book::go(void)
     if (action == "EXIT")
       out = 1;
     else if (action == "ADD")
-      Book::add();
+      Book::_add();
     else if (action == "SEARCH")
-      Book::search();
+      Book::_search();
   }
   std::cout << "sortie du programme" << std::endl;
 }
 
-void Book::add(void)
+int      Book::_get_id(void) const
 {
-  std::string entry;
-
-  std::cout << "entrer " << Contact.getf_name() << " : ";
-  std::getline(std::cin, entry);
-  Contact.setf_name(entry);
-  std::cout << "entrer " << Contact.getl_name() << " : ";
-  std::getline(std::cin, entry);
-  Contact.setl_name(entry);
-  std::cout << "entrer " << Contact.getn_name() << " : ";
-  std::getline(std::cin, entry);
-  Contact.setn_name(entry);
-  std::cout << "entrer " << Contact.getlogin() << " : ";
-  std::getline(std::cin, entry);
-  Contact.setlogin(entry);
-  std::cout << "entrer " << Contact.getadress() << " : ";
-  std::getline(std::cin, entry);
-  Contact.setadress(entry);
-  std::cout << "entrer " << Contact.getmail() << " : ";
-  std::getline(std::cin, entry);
-  Contact.setmail(entry);
-  std::cout << "entrer " << Contact.getphone() << " : ";
-  std::getline(std::cin, entry);
-  Contact.setphone(entry);
-  std::cout << "entrer " << Contact.getb_date() << " : ";
-  std::getline(std::cin, entry);
-  Contact.setb_date(entry);
-  std::cout << "entrer " << Contact.getf_meal() << " : ";
-  std::getline(std::cin, entry);
-  Contact.setf_meal(entry);
-  std::cout << "entrer " << Contact.getunder_color() << " : ";
-  std::getline(std::cin, entry);
-  Contact.setunder_color(entry);
-  std::cout << "entrer " << Contact.getsecret() << " : ";
-  std::getline(std::cin, entry);
-  Contact.setsecret(entry);
-
-  Contact.set_id();
-  // std::cout << Contact.get_id() << std::endl;
-
-  //
-  // std::cout << Contact.getf_name() << std::endl << Contact.getl_name() << std::endl << Contact.getn_name() << std::endl << Contact.getlogin() << std::endl << Contact.getadress() << std::endl << Contact.getmail() << std::endl << Contact.getphone() << std::endl << Contact.getb_date() << std::endl << Contact.getf_meal() << std::endl << Contact.getunder_color() << std::endl << Contact.getsecret() << std::endl;
+  return (this->_id);
 }
 
-void	Book::search(void)
+
+void	 Book::_set_id(void)
+{
+  this->_id++;
+}
+
+void Book::_add(void)
+{
+  std::string entry;
+  int   i;
+
+  i = Book::_get_id();
+  if (i > 7)
+    std::cout << "Memory is full" << std::endl;
+  else
+  {
+    std::cout << Contact[i].getf_name();
+    std::getline(std::cin, entry);
+    Contact[i].setf_name(entry);
+    std::cout << Contact[i].getl_name();
+    std::getline(std::cin, entry);
+    Contact[i].setl_name(entry);
+    std::cout << Contact[i].getn_name();
+    std::getline(std::cin, entry);
+    Contact[i].setn_name(entry);
+    std::cout << Contact[i].getlogin();
+    std::getline(std::cin, entry);
+    Contact[i].setlogin(entry);
+    std::cout << Contact[i].getadress();
+    std::getline(std::cin, entry);
+    Contact[i].setadress(entry);
+    std::cout << Contact[i].getmail();
+    std::getline(std::cin, entry);
+    Contact[i].setmail(entry);
+    std::cout << Contact[i].getphone();
+    std::getline(std::cin, entry);
+    Contact[i].setphone(entry);
+    std::cout << Contact[i].getb_date();
+    std::getline(std::cin, entry);
+    Contact[i].setb_date(entry);
+    std::cout << Contact[i].getf_meal();
+    std::getline(std::cin, entry);
+    Contact[i].setf_meal(entry);
+    std::cout << Contact[i].getunder_color();
+    std::getline(std::cin, entry);
+    Contact[i].setunder_color(entry);
+    std::cout << Contact[i].getsecret();
+    std::getline(std::cin, entry);
+    Contact[i].setsecret(entry);
+    Book::_set_id();
+  }
+}
+
+void	Book::_search(void)
 {
   int i;
 
@@ -86,19 +99,17 @@ void	Book::search(void)
   std::cout << " ________________________________________________" << std::endl;
   std::cout << "| id |  first name |  last name   |   nickname   |" << std::endl;
   std::cout << "|____|_____________|______________|______________|" << std::endl;
-  if (++i < Contact.get_id())
+  while (++i < Book::_get_id())
   {
-    std::cout << "| " << i << "  | " << Contact.getf_name();
-    // len = Contact.getf_name().length();
-    // w_str = Book::w_str(Contact.getf_name().length());
-    std::cout << Book::w_str(Contact.getf_name().length()) << "| " << Contact.getl_name() << Book::w_str(Contact.getl_name().length()) << " | " << Contact.getn_name() << Book::w_str(Contact.getn_name().length()) << " |" << std::endl;
+    std::cout << "| " << i << "  | " << Contact[i].getf_name();
+    std::cout << Book::_w_str(Contact[i].getf_name().length()) << "| " << Contact[i].getl_name() << Book::_w_str(Contact[i].getl_name().length()) << " | " << Contact[i].getn_name() << Book::_w_str(Contact[i].getn_name().length()) << " |" << std::endl;
 
   }
   std::cout << "|____|_____________|______________|______________|" << std::endl;
 
 }
 
-std::string Book::w_str(size_t s_len)
+std::string Book::_w_str(size_t s_len)
 {
   size_t len;
   size_t i = 0;

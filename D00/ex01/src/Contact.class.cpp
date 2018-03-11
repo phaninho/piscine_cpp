@@ -3,18 +3,17 @@
 #include <string>
 
 Contact::Contact(void) :
-  _f_name("first name"),
-  _l_name("last name"),
-  _n_name("nickname"),
-  _login("login"),
-  _adress("adress"),
-  _mail("mail"),
-  _phone("phone number"),
-  _b_date("birth date"),
-  _f_meal("favorite meal"),
-  _under_color("underwear color"),
-  _secret("secret"),
-  _id(0)
+  _f_name("entrer first name :"),
+  _l_name("entrer last name :"),
+  _n_name("entrer nickname :"),
+  _login("entrer login :"),
+  _adress("entrer adress :"),
+  _mail("entrer mail :"),
+  _phone("entrer phone number :"),
+  _b_date("entrer birth date :"),
+  _f_meal("entrer favorite meal :"),
+  _under_color("entrer underwear color :"),
+  _secret("entrer secret :")
 {
   return;
 }
@@ -78,12 +77,6 @@ std::string  const Contact::getsecret(void) const
 {
   return (this->_secret);
 }
-
-int      Contact::get_id(void) const
-{
-  return (this->_id);
-}
-
 
 void    Contact::setf_name(std::string const f_name)
 {
@@ -149,9 +142,4 @@ void    Contact::setsecret(std::string const secret)
 {
   if (!secret.empty())
     this->_secret = secret;
-}
-
-void	 Contact::set_id(void)
-{
-  this->_id++;
 }
