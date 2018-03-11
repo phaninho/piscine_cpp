@@ -20,6 +20,7 @@ class Book
   std::string _w_str(size_t len);
   int     _get_id(void) const;
   void	  _set_id(void);
+  std::string  _getrightlength(std::string str) const;
 
   int _id;
 };

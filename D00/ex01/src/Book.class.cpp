@@ -96,17 +96,24 @@ void	Book::_search(void)
   int i;
 
   i = -1;
-  std::cout << " ________________________________________________" << std::endl;
-  std::cout << "| id |  first name |  last name   |   nickname   |" << std::endl;
-  std::cout << "|____|_____________|______________|______________|" << std::endl;
+  std::cout << " ______________________________________" << std::endl;
+  std::cout << "| id |  first n |  last n  | nickname |" << std::endl;
+  std::cout << "|____|__________|__________|__________|" << std::endl;
   while (++i < Book::_get_id())
   {
-    std::cout << "| " << i << "  | " << Contact[i].getf_name();
-    std::cout << Book::_w_str(Contact[i].getf_name().length()) << "| " << Contact[i].getl_name() << Book::_w_str(Contact[i].getl_name().length()) << " | " << Contact[i].getn_name() << Book::_w_str(Contact[i].getn_name().length()) << " |" << std::endl;
+    std::cout << "| " << i << "  |" << Book::_getrightlength(Contact[i].getf_name());
+    std::cout << Book::_w_str(Contact[i].getf_name().length()) << "|" << Book::_getrightlength(Contact[i].getl_name()) << Book::_w_str(Contact[i].getl_name().length()) << "|" << Book::_getrightlength(Contact[i].getn_name()) << Book::_w_str(Contact[i].getn_name().length()) << "|" << std::endl;
 
   }
-  std::cout << "|____|_____________|______________|______________|" << std::endl;
+  std::cout << "|____|__________|__________|__________|" << std::endl;
 
+}
+
+std::string  Book::_getrightlength(std::string str) const
+{
+    if (str.length() > 10)
+      return (str.substr(0, 9) + ".");
+    return (str);
 }
 
 std::string Book::_w_str(size_t s_len)
@@ -115,7 +122,7 @@ std::string Book::_w_str(size_t s_len)
   size_t i = 0;
   std::string wstr;
 
-  len = 12;
+  len = 10;
   while (s_len < len)
   {
       wstr += ' ';
