@@ -109,7 +109,7 @@ void	Book::_search(void)
 
 }
 
-std::string  Book::_getrightlength(std::string str) const
+std::string  const Book::_getrightlength(std::string str) const
 {
     if (str.length() > 10)
       return (str.substr(0, 9) + ".");
