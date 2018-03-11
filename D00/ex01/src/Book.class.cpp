@@ -94,7 +94,7 @@ void Book::_add(void)
 void	Book::_search(void)
 {
   int i;
-
+  std::string id;
   i = -1;
   std::cout << " ______________________________________" << std::endl;
   std::cout << "| id |  first n |  last n  | nickname |" << std::endl;
@@ -106,7 +106,19 @@ void	Book::_search(void)
 
   }
   std::cout << "|____|__________|__________|__________|" << std::endl;
-
+  std::cout << "Select the Contact index desired : "; std::getline(std::cin, id);
+  i = std::stoi(id);
+  std::cout << Contact[i].getf_name() << std::endl;
+  std::cout << Contact[i].getl_name() << std::endl;
+  std::cout << Contact[i].getn_name() << std::endl;
+  std::cout << Contact[i].getlogin() << std::endl;
+  std::cout << Contact[i].getadress() << std::endl;
+  std::cout << Contact[i].getmail() << std::endl;
+  std::cout << Contact[i].getphone() << std::endl;
+  std::cout << Contact[i].getb_date() << std::endl;
+  std::cout << Contact[i].getf_meal() << std::endl;
+  std::cout << Contact[i].getunder_color() << std::endl;
+  std::cout << Contact[i].getsecret() << std::endl;
 }
 
 std::string  const Book::_getrightlength(std::string str) const
