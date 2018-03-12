@@ -1,12 +1,16 @@
 #include "Account.class.hpp"
 #include <iostream>
 
-Account::Account( int initial_deposit ) : _accountIndex(this->_nbAccounts)
+Account::Account( int initial_deposit ) : _accountIndex(this->_nbAccounts),
+                                          _amount(initial_deposit),
+                                          _nbDeposits(0),
+                                          _nbWithdrawals(0)
 {
   std::cout << "[";
   Account::_displayTimestamp();
   std::cout << "] ";
   this->_accountIndex = ++Account::_nbAccounts;
+  Account::_totalAmount += this->_amount;
   std::cout << "index:" << this->_accountIndex << ';'<< "amount:" << this->_amount << ';' << "created" << std::endl;
   return ;
 }
@@ -20,6 +24,12 @@ Account::~Account()
   std::cout << "index:" << this->_accountIndex << ';'<< "amount:" << this->_amount << ';' << "closed" << std::endl;
   return ;
 }
+
+void	Account::makeDeposit( int deposit )
+{
+
+}
+
 
 void	Account::_displayTimestamp( void )
 {
@@ -51,6 +61,10 @@ void	Account::_displayTimestamp( void )
 
 void	Account::displayStatus( void ) const
 {
+  std::cout << "[";
+  Account::_displayTimestamp();
+  std::cout << "] ";
+  std::cout << "index:" << this->_accountIndex << ';'<< "amount:" << this->_amount << ';' << "deposits:" << this->_nbDeposits << ';' << "withdrawals:" <<  this->_nbWithdrawals << std::endl;
 }
 
 void	Account::displayAccountsInfos( void )

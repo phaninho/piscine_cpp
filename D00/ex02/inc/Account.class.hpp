@@ -17,11 +17,11 @@ public:
 
 	typedef Account		t;
 
-	static int	getNbAccounts( void );
-	static int	getTotalAmount( void );
-	static int	getNbDeposits( void );
-	static int	getNbWithdrawals( void );
-	static void	displayAccountsInfos( void );
+	static int	getNbAccounts( void ); //fait
+	static int	getTotalAmount( void ); //fait
+	static int	getNbDeposits( void );//fait
+	static int	getNbWithdrawals( void ); //fait
+	static void	displayAccountsInfos( void ); //fait
 
 	Account( int initial_deposit );
 	~Account( void );
@@ -40,7 +40,7 @@ private:
 	static int	_totalNbDeposits;
 	static int	_totalNbWithdrawals;
 
-	static void	_displayTimestamp( void );
+	static void	_displayTimestamp( void ); //fait
 
 	int				_accountIndex;
 	int				_amount;
