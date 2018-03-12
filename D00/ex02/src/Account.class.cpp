@@ -51,14 +51,34 @@ void	Account::_displayTimestamp( void )
 
 void	Account::displayStatus( void ) const
 {
-  // std::cout << "index:" << this->_accountIndex << ';'<< "amount:" << this->_amount << ';' << "deposits:" << this->_nbDeposits << ';' <<  "withdrawals:" << this->_nbWithdrawals << std::endl;
 }
 
 void	Account::displayAccountsInfos( void )
 {
-  // std::cout << "[";
-  // Account::_displayTimestamp();
-  // std::cout << "] ";
+  std::cout << "[";
+  Account::_displayTimestamp();
+  std::cout << "] ";
+  std::cout << "accounts:" << Account::getNbAccounts() << ';'<< "total:" << Account::getTotalAmount() << ';' << "deposits:" << Account::getNbDeposits() << ';' <<  "withdrawals:" << Account::getNbWithdrawals() << std::endl;
+}
+
+int	Account::getNbWithdrawals( void )
+{
+    return (Account::_totalNbWithdrawals);
+}
+
+int	Account::getNbDeposits( void )
+{
+  return (Account::_totalNbDeposits);
+}
+
+int	Account::getTotalAmount( void )
+{
+  return (Account::_totalAmount);
+}
+
+int	Account::getNbAccounts( void )
+{
+  return (Account::_nbAccounts);
 }
 
 int	Account::_nbAccounts = -1;
