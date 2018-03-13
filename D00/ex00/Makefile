@@ -23,7 +23,7 @@ OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
 INC = $(addprefix -I,$(INC_PATH))
 
 CC = g++
-CFLAGS = -Wall -Wextra -Werror -MMD
+CFLAGS = -Wall -Wextra -Werror
 
 all:
 	@echo "\033[36;44m Make $(NAME) \033[0m"
