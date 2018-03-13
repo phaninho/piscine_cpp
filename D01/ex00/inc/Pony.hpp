@@ -1,21 +1,22 @@
 #ifndef PONY_HPP
 #define PONY_HPP
 
-#include <iostream>
+#include <string>
 
 class Pony
 {
   public:
 
-    Pony (int age, std::string gender, std::string name);
+    Pony (int age, std::string gender, std::string name, std::string city);
     ~Pony(void);
 
   private:
 
-    int _legs;
-    int _age;
-    std::string _gender;
-    std::string _name;
+    int const _legs;
+    int const _age;
+    std::string const _gender;
+    std::string const _name;
+    std::string const _city;
 };
 
 #endif
