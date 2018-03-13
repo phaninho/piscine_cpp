@@ -14,9 +14,9 @@ SRC_PATH = ./src/
 OBJ_PATH = ./obj/
 INC_PATH = ./inc/
 
-SRC_NAME = test.cpp Account.class.cpp
+SRC_NAME = tests.cpp Account.class.cpp
 OBJ_NAME = $(SRC_NAME:.cpp=.o)
-NAME = test_log
+NAME = account.log
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
