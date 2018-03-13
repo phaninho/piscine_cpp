@@ -22,7 +22,8 @@ void Book::go(void)
 
   while (!out)
   {
-    std::getline(std::cin, action);
+    if (!std::getline(std::cin, action))
+      break;
     if (action == "EXIT")
       out = 1;
     else if (action == "ADD")
