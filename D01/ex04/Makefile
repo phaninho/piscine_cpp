@@ -14,9 +14,9 @@ SRC_PATH = ./src/
 OBJ_PATH = ./obj/
 INC_PATH = ./inc/
 
-SRC_NAME = Zombie.cpp ZombieHorde.cpp main.cpp
+SRC_NAME = ex04.cpp
 OBJ_NAME = $(SRC_NAME:.cpp=.o)
-NAME = zombie_horde_attack
+NAME = ex04
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
