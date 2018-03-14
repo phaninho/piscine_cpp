@@ -20,19 +20,9 @@ int   main(void)
   std::cout << "      \\|             |" << std::endl;
   std::cout << "       |_____________|" << std::endl;
   std::cout << "        |__|     |__|" << std::endl;
-
-  // std::string buf;
-  // Contact first;
   std::cout << std::endl << "   Bienvenue dans PhoneBook!" << std::endl << std::endl;
   std::cout << "Entrez une des commandes suivantes:" << std::endl;
   std::cout << " # ADD (ajouter un contact)" << std::endl << " # SEARCH (chercher un contact)" << std::endl << " # EXIT (sortir et supprimer tous les contacts)" << std::endl;
-
   book.go();
-  // std::cout << first.getf_name() << std::endl;
-  // std::cin >> buf;
-  // first.setf_name(buf);
-  // std::cin >> buf;
-  // first.setl_name(buf);
-  // std::cout << first.getf_name() << ' ' << first.getl_name() << std::endl;
   return (0);
 }
