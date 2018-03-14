@@ -3,7 +3,6 @@
 
 Zombie::Zombie(std::string type): _type(type)
 {
-  // Zombie::announce();
   return ;
 }
 

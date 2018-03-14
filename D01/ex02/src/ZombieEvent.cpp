@@ -4,8 +4,6 @@
 
 ZombieEvent::ZombieEvent(void)
 {
-  // if (!type.empty())
-    // ZombieEvent::setZombieType(type);
   return;
 }
 

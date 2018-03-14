@@ -9,7 +9,8 @@ int main()
   zombieevent.setZombieType("cowboy");
   zombie = zombieevent.newZombie("Billy");
   zombie->announce();
-
+  delete zombie;
+  
   zombieevent.randomChump();
   return (0);
 }

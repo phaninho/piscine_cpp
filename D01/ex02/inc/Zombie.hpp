@@ -12,7 +12,7 @@ class Zombie
     ~Zombie(void);
 
     void	announce(void) const;
-    void setname(std::string name);
+    void  setname(std::string name);
 
   private:
 
