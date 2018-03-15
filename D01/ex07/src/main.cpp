@@ -25,11 +25,13 @@ int main(int ac, char **av)
     std::cout << "open file in failes" << std::endl;
     return (1);
   }
+
   s1 = av[2];
   s2 = av[3];
   len = s1.length();
   newfilename = filename + ".replace";
   std::ofstream ofile(newfilename);
+
   if (ofile.is_open() == false)
   {
     std::cout << "open file out failes" << std::endl;

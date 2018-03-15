@@ -49,11 +49,3 @@ re: fclean all
 -include $(OBJ:.o=.d)
 
 .PHONY: clean fclean re
-
-norme :
-	@echo "\033[37;44m norme libft \033[0m"
-	@norminette ./libft/*[ch]
-	@echo "\033[37;44m norme src directory \033[0m"
-	@norminette ./src/*.c
-	@echo "\033[37;44m norme include directory \033[0m"
-	@norminette ./include/*.h

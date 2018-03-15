@@ -14,9 +14,9 @@ SRC_PATH = ./src/
 OBJ_PATH = ./obj/
 INC_PATH = ./inc/
 
-SRC_NAME = Zombie.cpp ZombieEvent.cpp main.cpp
+SRC_NAME = main.cpp Logger.cpp
 OBJ_NAME = $(SRC_NAME:.cpp=.o)
-NAME = zombie_attack
+NAME = Log_time
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
