@@ -14,9 +14,9 @@ SRC_PATH = ./src/
 OBJ_PATH = ./obj/
 INC_PATH = ./inc/
 
-SRC_NAME = main.cpp Human.cpp
+SRC_NAME = main.cpp Fixed.cpp
 OBJ_NAME = $(SRC_NAME:.cpp=.o)
-NAME = Human_attack
+NAME = canon_class
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
