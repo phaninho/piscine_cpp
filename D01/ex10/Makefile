@@ -16,7 +16,7 @@ INC_PATH = ./inc/
 
 SRC_NAME = main.cpp
 OBJ_NAME = $(SRC_NAME:.cpp=.o)
-NAME = cat
+NAME = cato9tails
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
