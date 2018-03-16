@@ -19,6 +19,8 @@ class Logger
     void logToConsole(std::string const & str);
     void logToFile(std::string const & str);
     std::string const makeLogEntry(std::string const & str);
+    std::string	_displayTimestamp( void );
+
     std::string _file_name;
 };
 

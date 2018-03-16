@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <ctime>
 
 std::string fnDest[2] = {"logToConsole", "logToFile"};
 Logger::logFn const Logger::fnArray[2] = {&Logger::logToConsole, &Logger::logToFile};
@@ -18,11 +19,13 @@ Logger::~Logger(void)
 
 void Logger::logToConsole(std::string const & str)
 {
-  std::cout << str << std::endl;
+  std::string buf = this->makeLogEntry(str);
+  std::cout << buf << std::endl;
 }
 
 void Logger::logToFile(std::string const & str)
 {
+  std::string buf = this->makeLogEntry(str);
   std::ofstream ofile(this->_file_name, std::ios::app);
 
   if (ofile.is_open() == false)
@@ -31,8 +34,31 @@ void Logger::logToFile(std::string const & str)
     return ;
   }
   else
-    ofile << str << std::endl;
+    ofile << buf << std::endl;
   ofile.close();
+}
+
+std::string const Logger::makeLogEntry(std::string const & str)
+{
+  std::string buf = this->_displayTimestamp();
+  buf += str;
+  return (buf);
+}
+
+std::string	Logger::_displayTimestamp( void )
+{
+  time_t rawtime;
+  struct tm *timeinfo;
+  char buffer[80];
+  std::string datestr = "[";
+
+  time (&rawtime);
+  timeinfo = localtime(&rawtime);
+
+  strftime(buffer, sizeof(buffer), "%d-%m-%Y %I:%M:%S", timeinfo);
+  datestr += buffer;
+  datestr += "] ";
+  return (datestr);
 }
 
 void Logger::log(std::string const & dest, std::string const & message)
