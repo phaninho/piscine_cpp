@@ -3,9 +3,10 @@
 
 int const Fixed::_frac_bit = 8;
 
-Fixed::Fixed(void): _point_value(0)
+Fixed::Fixed(void)
 {
   std::cout << "Default constructor called" << std::endl;
+  this->setRawBits(0);
   return ;
 }
 
@@ -37,6 +38,5 @@ Fixed   &Fixed::operator=( Fixed const & rhs)
 
 void  Fixed::setRawBits( int const raw )
 {
-  // std::cout << "Assignation operator called" << std::endl;
   this->_point_value = raw;
 }
