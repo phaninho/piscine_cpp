@@ -73,6 +73,7 @@ void make_operation(std::string *array, int sym_nb)
 {
   for (int i = 0; i <= sym_nb; i++)
     std::cout << array[i] << std::endl;
+  
 }
 
 int main(int ac, char **av)
