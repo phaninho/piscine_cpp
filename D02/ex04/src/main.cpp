@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 
 std::string space_remove(char *av)
 {
@@ -22,22 +23,39 @@ bool  is_bracket(char c)
   return (0);
 }
 
-bool  is_operator(char c)
+bool  is_operator(char c, std::string *delim_str)
 {
   if (c == '+' || c == '-' || c == '*' || c == '/' || c == '.' || is_bracket(c))
+  {
+    if (c != '.')
+      *delim_str += '_';
     return (1);
+  }
   return (0);
 }
 
 bool  check_str_syntax(std::string str)
 {
+  int t = 0;
   int len = str.length();
+  std::string delim_str = "";
+
   for (int i = 0; i < len; i++)
   {
     if (!std::isdigit(str[i]))
-      if (!is_operator(str[i]))
+    {
+      if (!is_operator(str[i], &delim_str))
         return (1);
+      t = 1;
+    }
+    delim_str += str[i];
+    if (t == 1)
+    {
+      t = 0;
+      delim_str += '_';
+    }
   }
+  std::cout << delim_str << std::endl;
   return (0);
 }
 
