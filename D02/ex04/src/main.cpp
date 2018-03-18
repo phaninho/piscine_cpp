@@ -15,9 +15,16 @@ std::string space_remove(char *av)
   return (str);
 }
 
+bool  is_bracket(char c)
+{
+  if (c == '(' || c == ')')
+    return (1);
+  return (0);
+}
+
 bool  is_operator(char c)
 {
-  if (c == '+' || c == '-' || c == '*' || c == '/' || c == '.' || c == '(' || c == ')')
+  if (c == '+' || c == '-' || c == '*' || c == '/' || c == '.' || is_bracket(c))
     return (1);
   return (0);
 }
