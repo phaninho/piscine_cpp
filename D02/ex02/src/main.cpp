@@ -3,8 +3,6 @@
 
 int main( void )
 {
-  int a = 1;
-  int b = 2;
   Fixed a;
   Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
   std::cout << a << std::endl;
