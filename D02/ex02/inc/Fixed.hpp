@@ -11,23 +11,30 @@ class Fixed
     Fixed(float const nb);
     Fixed(Fixed const &f);
     ~Fixed(void);
-    int getRawBits( void ) const;
-    void setRawBits( int const raw );
-    float toFloat( void ) const;
+
+    void  setRawBits( int const raw );
+    int   getRawBits( void ) const;
     int   toInt( void ) const;
+    float toFloat( void ) const;
+
     bool operator>( Fixed const & rhs);
     bool operator<( Fixed const & rhs);
     bool operator>=( Fixed const & rhs);
     bool operator<=( Fixed const & rhs);
     bool operator==( Fixed const & rhs);
     bool operator!=( Fixed const & rhs);
+
     Fixed operator+( Fixed const & rhs);
     Fixed operator-( Fixed const & rhs);
     Fixed operator*( Fixed const & rhs);
     Fixed operator/( Fixed const & rhs);
     Fixed &operator=( Fixed const & rhs);
+
     Fixed &operator++(void);
     Fixed operator++(int);
+    Fixed &operator--(void);
+    Fixed operator--(int);
+
     static Fixed min(Fixed & lhs, Fixed & rhs);
     static Fixed max(Fixed & lhs, Fixed & rhs);
     static Fixed const min(Fixed const & lhs, Fixed const & rhs);
