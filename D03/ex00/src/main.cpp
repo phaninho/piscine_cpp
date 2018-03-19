@@ -7,8 +7,9 @@ int main()
   FragTrap tedy("ted");
   FragTrap sam("sam");
 
-  tedy.takeDamage(tedy.rangedAttack(sam.getname()));
+  sam.takeDamage(tedy.rangedAttack(sam.getname()));
+  sam.takeDamage(tedy.rangedAttack(sam.getname()));
 
-  // std::cout << tedy.getname() << std::endl;
+  sam.beRepaired(25);
   return (0);
 }
