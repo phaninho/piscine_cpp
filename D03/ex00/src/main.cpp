@@ -7,8 +7,8 @@ int main()
   FragTrap tedy("ted");
   FragTrap sam("sam");
 
-  sam.takeDamage(tedy.rangedAttack(sam.getname()));
-  sam.takeDamage(tedy.rangedAttack(sam.getname()));
+  tedy.rangedAttack(sam.getname());
+  sam.rangedAttack(tedy.getname());
 
   sam.beRepaired(25);
   return (0);
