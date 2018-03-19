@@ -18,6 +18,7 @@ FragTrap::FragTrap(std::string name): _name(name)
 
 FragTrap::~FragTrap(void)
 {
+  std::cout << "Err... Je ne -- Je ne suis pas la! Je-Je-Je-Je... j'ai quité le building, c'est ce que j'ai fait! Je suis parti! Regarde!" << std::endl;
   return ;
 }
 
@@ -26,8 +27,20 @@ std::string const FragTrap::getname(void)
   return (this->_name);
 }
 
-int FragTrap::rangedAttack(std::string const & target)
+int   FragTrap::rangedAttack(std::string const & target)
 {
-  std::cout << "FR4G-TP " << this->_name <<  " attacks " << target << " at range, causing " << this->_ranged_atk_dmg << " points of damage !" << std::endl;
+  std::cout << "FR4G-TP " << this->_name <<  " attaque " << target << " a bout portant, causant " << this->_ranged_atk_dmg << " points de degats !" << std::endl;
   return (this->_ranged_atk_dmg);
+}
+
+void  FragTrap::takeDamage(unsigned int amount)
+{
+  std::cout << this->_name << " viens de perdre " << amount - this->_armor_dmg_reduc << " HP" << std::endl;
+  this->sethitpoint(amount - this->_armor_dmg_reduc);
+}
+
+void FragTrap::sethitpoint(unsigned int amount)
+{
+  this->_hit_point -= amount;
+  std::cout << this->_name << " a actuellement " << this->_hit_point << " points de vie" << std::endl; 
 }

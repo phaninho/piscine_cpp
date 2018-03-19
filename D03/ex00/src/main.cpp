@@ -3,11 +3,11 @@
 
 int main()
 {
-  int dmg;
+  // int dmg;
   FragTrap tedy("ted");
   FragTrap sam("sam");
 
-  dmg = tedy.rangedAttack(sam.getname());
+  tedy.takeDamage(tedy.rangedAttack(sam.getname()));
 
   // std::cout << tedy.getname() << std::endl;
   return (0);

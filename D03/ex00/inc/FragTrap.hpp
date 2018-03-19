@@ -13,6 +13,7 @@ class FragTrap
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
     std::string const getname(void);
+    void sethitpoint(unsigned int amount);
 
   private:
     int _hit_point;
