@@ -17,13 +17,13 @@ FragTrap::FragTrap(std::string name): _name(name)
   this->_intimidate_atk_dmg = 10;
   this->_armor_dmg_reduc = 5;
   std::cout << "FR4G-TP "<<  this->_name << " activation" << std::endl;
-  std::cout << "Ordre numero 1 : proteger l'humanite. Ordre numero 2 : obeir a Jack coute que coute. Ordre numero 3 : danser bebe." << std::endl << "Mise a execution de l'ordre numero 3. Uhn tss uhn tss uhn tss.." << std::endl;
+  std::cout << "-" << this->_name << " : Ordre numero 1 : proteger l'humanite. Ordre numero 2 : obeir a Jack coute que coute. Ordre numero 3 : danser bebe." << std::endl << "Mise a execution de l'ordre numero 3. Uhn tss uhn tss uhn tss.." << std::endl;
   return ;
 }
 
 FragTrap::~FragTrap(void)
 {
-  std::cout << this->_name << " : Err... Je ne -- Je ne suis pas la! Je-Je-Je-Je... j'ai quité le building, c'est ce que j'ai fait! Je suis parti! Regarde!" << std::endl;
+  std::cout <<"-" << this->_name << " : Err... Je ne -- Je ne suis pas la! Je-Je-Je-Je... j'ai quité le building, c'est ce que j'ai fait! Je suis parti! Regarde!" << std::endl;
   return ;
 }
 
@@ -61,7 +61,7 @@ void FragTrap::vaulthunter_dot_exe(std::string const & target)
     this->_setEnergyPoint(25);
   }
   else
-    std::cout << "energy insuffisante, buvez un jus d'orange" << std::cout;
+    std::cout << "vous n'avez que " << this->_energy_point<< " points d'energy, c'est insuffisant pour effectuer l'attaque random, buvez un jus d'orange !" << std::endl;
 }
 
 void  FragTrap::takeDamage(unsigned int amount)
@@ -72,7 +72,7 @@ void  FragTrap::takeDamage(unsigned int amount)
 
 void FragTrap::beRepaired(unsigned int amount)
 {
-  std::cout << this->_name << " viens de regarder un best of de Russian Dash Cam, ce moment de franche rigolade lui redonne " << amount << " HP" << std::endl;
+  std::cout << this->_name << " viens de regarder un best of de Russian Dash Cam, ce moment de remise en question de l'intelligence humaine lui remonte son ego. " << this->_name << " se sent dorenavant superieur a son createur ce qui a pour effet de booster son HP de " << amount << " points" << std::endl;
   this->_sethitpoint(-amount);
 }
 

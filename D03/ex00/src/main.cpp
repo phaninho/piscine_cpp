@@ -30,6 +30,14 @@ int main()
 
   sam.vaulthunter_dot_exe(tedy.getname());
   std::cout << std::endl;
+  sam.vaulthunter_dot_exe(tedy.getname());
+  std::cout << std::endl;
+  sam.vaulthunter_dot_exe(tedy.getname());
+  std::cout << std::endl;
+  sam.vaulthunter_dot_exe(tedy.getname());
+  std::cout << std::endl;
+  sam.vaulthunter_dot_exe(tedy.getname());
+  std::cout << std::endl;
 
   sam.beRepaired(25);
   std::cout << std::endl;
