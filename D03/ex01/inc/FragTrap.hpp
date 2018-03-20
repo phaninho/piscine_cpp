@@ -22,13 +22,12 @@ class FragTrap
     int getIntimidationAttackAmount(void) const;//fait
     int getSingstarAttackAmount(void) const;//fait
     int getSMFAttackAmount(void) const;//fait
-
-  private:
     void vaulthunter_dot_exe(std::string const & target);
+
     typedef void (FragTrap::*FragTrapFn)(std::string const &);
     static FragTrapFn const function_array[];
 
-  protected:
+  private:
     int _hit_point;
     int _max_hit_point;
     int _energy_point;
