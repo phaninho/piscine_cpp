@@ -17,7 +17,6 @@ class ScavTrap : public ClapTrap
     void singstarAttack(std::string const & target);//fait
     void smellMyFeetAttack(std::string const & target);//fait
     void challengeNewcomer(std::string const & target);
-    void beRepaired(unsigned int amount);//fair
 
   private:
     static std::string const _challenges[5];

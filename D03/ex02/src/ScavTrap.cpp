@@ -59,9 +59,3 @@ void  ScavTrap::challengeNewcomer(std::string const & target)
   		<< challenge << ". J'ai un doute sur le bien fondé de cette epreuve!" << std::endl;
   	return;
 }
-
-void ScavTrap::beRepaired(unsigned int amount)
-{
-  std::cout << this->_name << " viens de regarder un best of de Russian Dash Cam, ce moment de remise en question de l'intelligence humaine lui remonte son ego. " << this->_name << " se sent dorenavant superieur a son createur ce qui a pour effet de booster son HP de " << amount << " points" << std::endl;
-  this->_sethitpoint(-amount);
-}

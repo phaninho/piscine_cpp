@@ -16,7 +16,7 @@ INC_PATH = ./inc/
 
 SRC_NAME = main.cpp FragTrap.cpp ScavTrap.cpp ClapTrap.cpp
 OBJ_NAME = $(SRC_NAME:.cpp=.o)
-NAME = FragTrapVsScavTrap
+NAME = ClapTrap
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))

@@ -20,6 +20,7 @@ class ClapTrap
     int getSMFAttackAmount(void) const;//fait
     void _sethitpoint(unsigned int amount);//fait
     void _setEnergyPoint(unsigned int amount);
+    void beRepaired(unsigned int amount);//fair
 
   protected:
     int _hit_point;

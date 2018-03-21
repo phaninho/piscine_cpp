@@ -63,9 +63,3 @@ void FragTrap::vaulthunter_dot_exe(std::string const & target)
   else
     std::cout << "vous n'avez que " << this->_energy_point<< " points d'energy, c'est insuffisant pour effectuer l'attaque random, buvez un jus d'orange !" << std::endl;
 }
-
-void FragTrap::beRepaired(unsigned int amount)
-{
-  std::cout << this->_name << " viens de regarder un best of de Russian Dash Cam, ce moment de remise en question de l'intelligence humaine lui remonte son ego. " << this->_name << " se sent dorenavant superieur a son createur ce qui a pour effet de booster son HP de " << amount << " points" << std::endl;
-  this->_sethitpoint(-amount);
-}

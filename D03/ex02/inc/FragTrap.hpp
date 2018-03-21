@@ -17,7 +17,6 @@ class FragTrap : public ClapTrap
     void singstarAttack(std::string const & target);//fait
     void smellMyFeetAttack(std::string const & target);//fait
     void vaulthunter_dot_exe(std::string const & target);
-    void beRepaired(unsigned int amount);//fair
 
     typedef void (FragTrap::*FragTrapFn)(std::string const &);
     static FragTrapFn const function_array[];

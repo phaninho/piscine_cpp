@@ -2,13 +2,13 @@
 
 ClapTrap::ClapTrap(std::string name): _name(name)
 {
-  std::cout << "oyez oyez, aclamez la venue du nouveau ClapTrap" << std::cout;
+  std::cout << "oyez oyez, aclamez la venue du nouveau ClapTrap" << std::endl;
   return ;
 }
 
 ClapTrap::~ClapTrap(void)
 {
-  std::cout << "ClapTrap est mort, vive ClapTrap" << std::cout;
+  std::cout << "ClapTrap est mort, vive ClapTrap" << std::endl;
   return ;
 }
 
@@ -16,6 +16,12 @@ void  ClapTrap::takeDamage(unsigned int amount)
 {
   std::cout << this->_name << " viens de perdre " << amount - this->_armor_dmg_reduc << " HP" << std::endl;
   this->_sethitpoint(amount - this->_armor_dmg_reduc);
+}
+
+void ClapTrap::beRepaired(unsigned int amount)
+{
+  std::cout << this->_name << " viens de regarder un best of de Russian Dash Cam, ce moment de remise en question de l'intelligence humaine lui remonte son ego. " << this->_name << " se sent dorenavant superieur a son createur ce qui a pour effet de booster son HP de " << amount << " points" << std::endl;
+  this->_sethitpoint(-amount);
 }
 
 void ClapTrap::_sethitpoint(unsigned int amount)
