@@ -2,6 +2,9 @@
 #include <string>
 #include <iostream>
 
+std::string const ScavTrap::_challenges[5] = {"assister a une competition de patinage artistique en integralité", "regarder ca grand mere faire un show de table dance", "faire 50 pompes sans les mains", "faire la stackoverflow dance en presence de zaz", "goutter a gargamel pour verifier si il est salé"};
+
+
 ScavTrap::ScavTrap(std::string name) : _name( name)
 {
   this->_hit_point = 100;
@@ -15,7 +18,8 @@ ScavTrap::ScavTrap(std::string name) : _name( name)
   this->_smellMyFeet_atk_dmg = 10;
   this->_intimidate_atk_dmg = 10;
   this->_armor_dmg_reduc = 3;
-  std::cout << "-" << this->_name << " : Poussez vous, c'est a moi de danser!" << std::endl;
+  std::cout << "SC4V-TP " << this->_name << " activation" << std::endl;
+  std::cout << "-" << this->_name << " : Poussez vous, c'est a moi de danser bebe!" << std::endl;
 }
 
 ScavTrap::~ScavTrap(void)
@@ -35,7 +39,7 @@ void   ScavTrap::smellMyFeetAttack(std::string const & target)
 
 void   ScavTrap::meleeAttack(std::string const & target)
 {
-  std::cout << "SC4V-TP " << this->_name << " saute dans la foule, comme a Woodstock en 1969 causant mais personnes n'est la pour l'amortir et tombe de plein fouet sur "<< target << " qui faisait la technique de l'Opossum."<< target << " recoit " << this->_ranged_atk_dmg << " points de degats !" << std::endl;
+  std::cout << "SC4V-TP " << this->_name << " saute dans la foule, comme a Woodstock en 1969 mais personnes n'est la pour l'amortir et tombe de plein fouet sur "<< target << " qui faisait la technique de l'Opossum."<< target << " recoit " << this->_ranged_atk_dmg << " points de degats !" << std::endl;
 }
 
 void   ScavTrap::intimidatingShout(std::string const & target)
@@ -45,20 +49,18 @@ void   ScavTrap::intimidatingShout(std::string const & target)
 
 void   ScavTrap::rangedAttack(std::string const & target)
 {
-  std::cout << "SC4V-TP " << this->_name <<  " lance un carte routiere a " << target << " qui fini par trebucher dessus, causant " << this->_ranged_atk_dmg << " points de degats !" << std::endl;
+  std::cout << "SC4V-TP " << this->_name <<  " lance un carte routiere a " << target << ". La carte lui bouche le systeme d'aeration qui provoque une surchauffe. " << target << " recoit "<< this->_ranged_atk_dmg << " points de degats !" << std::endl;
 }
 
-// void ScavTrap::vaulthunter_dot_exe(std::string const & target)
-// {
-//   srand(time(0));
-//   if (this->_energy_point >= 25)
-//   {
-//     (this->*(ScavTrap::function_array[rand() % 5]))(target);
-//     this->_setEnergyPoint(25);
-//   }
-//   else
-//     std::cout << "vous n'avez que " << this->_energy_point<< " points d'energy, c'est insuffisant pour effectuer l'attaque random, buvez un jus d'orange !" << std::endl;
-// }
+void  ScavTrap::challengeNewcomer(std::string const & target)
+{
+  std::string challenge;
+  	std::srand(std::time(nullptr));
+  	challenge = ScavTrap::_challenges[std::rand() % 5];
+  	std::cout << this->_name << " lance un defis a " << target << " qui va devoir "
+  		<< challenge << ". J'ai un doute sur le bien fondé de cette epreuve!" << std::endl;
+  	return;
+}
 
 void  ScavTrap::takeDamage(unsigned int amount)
 {
@@ -68,9 +70,10 @@ void  ScavTrap::takeDamage(unsigned int amount)
 
 void ScavTrap::beRepaired(unsigned int amount)
 {
-  std::cout << this->_name << " viens de regarder un best of de Russian Dash Cam, ce moment de remise en question de l'intelligence humaine lui remonte son ego. " << this->_name << " se sent dorenavant superieur a son createur ce qui a pour effet de booster son HP de " << amount << " points" << std::endl;
+  std::cout << this->_name << " aime les belles chaussures, juste le fait d'y penser lui remonte ces HP de " << amount << " points" << std::endl;
   this->_sethitpoint(-amount);
 }
+
 
 void ScavTrap::_sethitpoint(unsigned int amount)
 {

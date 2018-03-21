@@ -39,7 +39,7 @@ void   FragTrap::smellMyFeetAttack(std::string const & target)
 
 void   FragTrap::meleeAttack(std::string const & target)
 {
-  std::cout << "FR4G-TP " << this->_name <<  " attaque " << target << " avec ca technique d'attaque de melée, causant " << this->_ranged_atk_dmg << " points de degats !" << std::endl;
+  std::cout << "FR4G-TP " << this->_name <<  " attaque " << target << " avec ca technique d'attaque de melée, causant " << this->_melee_atk_dmg << " points de degats !" << std::endl;
 }
 
 void   FragTrap::intimidatingShout(std::string const & target)
@@ -57,6 +57,7 @@ void FragTrap::vaulthunter_dot_exe(std::string const & target)
   srand(time(0));
   if (this->_energy_point >= 25)
   {
+    std::cout << "attaque random : " << std::endl;
     (this->*(FragTrap::function_array[rand() % 5]))(target);
     this->_setEnergyPoint(25);
   }
