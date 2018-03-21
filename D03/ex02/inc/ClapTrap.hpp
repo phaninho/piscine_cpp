@@ -1,24 +1,16 @@
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
 
+#include <iostream>
 #include <string>
 
-class ScavTrap
+class ClapTrap
 {
   public:
-    ScavTrap(std::string name);
-    ~ScavTrap(void);
-
-    void rangedAttack(std::string const & target);//fait
-    void meleeAttack(std::string const & target);//fait
-    void intimidatingShout(std::string const & target); //fait
-    void singstarAttack(std::string const & target);//fait
-    void smellMyFeetAttack(std::string const & target);//fait
-    void challengeNewcomer(std::string const & target);
+    ClapTrap(std::string name);
+    ~ClapTrap(void);
 
     void takeDamage(unsigned int amount);//fait
-    void beRepaired(unsigned int amount);//fair
-
     std::string const getname(void) const;//fait
     int gethitpoint(void) const;//fait
     int getRangedAttackAmount(void) const;//fait
@@ -26,8 +18,10 @@ class ScavTrap
     int getIntimidationAttackAmount(void) const;//fait
     int getSingstarAttackAmount(void) const;//fait
     int getSMFAttackAmount(void) const;//fait
+    void _sethitpoint(unsigned int amount);//fait
+    void _setEnergyPoint(unsigned int amount);
 
-  private:
+  protected:
     int _hit_point;
     int _max_hit_point;
     int _energy_point;
@@ -40,9 +34,7 @@ class ScavTrap
     int _intimidate_atk_dmg;
     int _armor_dmg_reduc;
     std::string _name;
-    static std::string const _challenges[5];
-    void _sethitpoint(unsigned int amount);//fait
-    void _setEnergyPoint(unsigned int amount);
+
 };
 
 #endif

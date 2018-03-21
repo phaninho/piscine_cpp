@@ -14,7 +14,7 @@ SRC_PATH = ./src/
 OBJ_PATH = ./obj/
 INC_PATH = ./inc/
 
-SRC_NAME = main.cpp FragTrap.cpp ScavTrap.cpp 
+SRC_NAME = main.cpp FragTrap.cpp ScavTrap.cpp ClapTrap.cpp
 OBJ_NAME = $(SRC_NAME:.cpp=.o)
 NAME = FragTrapVsScavTrap
 
