@@ -2,13 +2,14 @@
 
 ClapTrap::ClapTrap(std::string name): _name(name)
 {
-  std::cout << "oyez oyez, aclamez la venue du nouveau ClapTrap" << std::endl;
+  std::cout << "CL4P-TP "<<  this->_name << " activation" << std::endl;
+  std::cout << "-" << this->_name << " : oyez oyez, aclamez la venue du nouveau ClapTrap" << std::endl;
   return ;
 }
 
 ClapTrap::~ClapTrap(void)
 {
-  std::cout << this->_name << " :ClapTrap est mort, vive ClapTrap" << std::endl;
+  std::cout << this->_name << " : ClapTrap est mort, vive ClapTrap" << std::endl;
   return ;
 }
 
