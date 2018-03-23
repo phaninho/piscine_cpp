@@ -4,6 +4,8 @@
 
 int main()
 {
+  ScavTrap *ted = new ScavTrap("ted");
+  delete ted;
   ScavTrap ely("ely");
   FragTrap sam("sam");
   std::cout << std::endl;

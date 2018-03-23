@@ -6,7 +6,9 @@
 class ScavTrap
 {
   public:
+    ScavTrap(void);
     ScavTrap(std::string name);
+    ScavTrap(ScavTrap const & src);
     ~ScavTrap(void);
 
     void rangedAttack(std::string const & target);//fait
@@ -26,6 +28,12 @@ class ScavTrap
     int getIntimidationAttackAmount(void) const;//fait
     int getSingstarAttackAmount(void) const;//fait
     int getSMFAttackAmount(void) const;//fait
+    int getmaxhitpoint(void) const;
+    int getenergypoint(void) const;
+    int getmaxenergypoint(void) const;
+    int getlevel(void) const;
+    int getArmorReducAmount(void) const;
+    ScavTrap &operator=( ScavTrap const & rhs);
 
   private:
     int _hit_point;

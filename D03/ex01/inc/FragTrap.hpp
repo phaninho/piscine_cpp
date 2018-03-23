@@ -6,7 +6,9 @@
 class FragTrap
 {
   public:
+    FragTrap(void);
     FragTrap(std::string name);
+    FragTrap(FragTrap const & src);
     ~FragTrap(void);
     void rangedAttack(std::string const & target);//fait
     void meleeAttack(std::string const & target);//fait
@@ -22,7 +24,13 @@ class FragTrap
     int getIntimidationAttackAmount(void) const;//fait
     int getSingstarAttackAmount(void) const;//fait
     int getSMFAttackAmount(void) const;//fait
+    FragTrap &operator=( FragTrap const & rhs);
     void vaulthunter_dot_exe(std::string const & target);
+    int getmaxhitpoint(void) const;
+    int getenergypoint(void) const;
+    int getmaxenergypoint(void) const;
+    int getlevel(void) const;
+    int getArmorReducAmount(void) const;
 
     typedef void (FragTrap::*FragTrapFn)(std::string const &);
     static FragTrapFn const function_array[];
