@@ -34,7 +34,7 @@ FragTrap::FragTrap(void)
   this->_smellMyFeet_atk_dmg = 15;
   this->_intimidate_atk_dmg = 10;
   this->_armor_dmg_reduc = 5;
-  this->_name = "inconnu"
+  this->_name = "inconnu";
   std::cout << "FR4G-TP "<<  this->_name << " activation" << std::endl;
   std::cout << "-" << this->_name << " : je n'ai pas de nom." << std::endl;
   return ;
