@@ -20,9 +20,52 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
   std::cout << "-" << this->_name << " : Poussez vous, c'est a moi de danser bebe!" << std::endl;
 }
 
+ScavTrap::ScavTrap(void): ClapTrap()
+{
+  this->_hit_point = 100;
+  this->_max_hit_point = 100;
+  this->_energy_point = 50;
+  this->_max_energy_point = 50;
+  this->_level = 1;
+  this->_singstar_atk_dmg = 50;
+  this->_melee_atk_dmg = 20;
+  this->_ranged_atk_dmg = 15;
+  this->_smellMyFeet_atk_dmg = 10;
+  this->_intimidate_atk_dmg = 10;
+  this->_armor_dmg_reduc = 3;
+  this->_name = "inconnu";
+  std::cout << "SC4V-TP " << this->_name << " personne ne m'appel jamais" << std::endl;
+}
+
+ScavTrap::ScavTrap(ScavTrap const & src): ClapTrap(src)
+{
+  *this = src;
+  std::cout << "On se ressemble pourtant on ne vie pas a la meme adresse" << std::endl;
+  return ;
+}
+
 ScavTrap::~ScavTrap(void)
 {
   std::cout << "-" << this->_name << " : Comme dirait Cartman \"Je vous enmerde et je rentre a ma maison !\"" << std::endl;
+}
+
+ScavTrap  &ScavTrap::operator=( ScavTrap const & rhs)
+{
+  if (this == &rhs)
+    return (*this);
+  this->_hit_point = rhs.gethitpoint();
+  this->_max_hit_point = rhs.getmaxhitpoint();
+  this->_energy_point = rhs.getenergypoint();
+  this->_max_energy_point = rhs.getmaxenergypoint();
+  this->_level = rhs.getlevel();
+  this->_singstar_atk_dmg = rhs.getSingstarAttackAmount();
+  this->_melee_atk_dmg = rhs.getMeleeAttackAmount();
+  this->_ranged_atk_dmg = rhs.getRangedAttackAmount();
+  this->_smellMyFeet_atk_dmg = rhs.getSMFAttackAmount();
+  this->_intimidate_atk_dmg = rhs.getIntimidationAttackAmount();
+  this->_armor_dmg_reduc = rhs.getArmorReducAmount();
+  this->_name = rhs.getname();
+  return (*this);
 }
 
 void   ScavTrap::singstarAttack(std::string const & target)

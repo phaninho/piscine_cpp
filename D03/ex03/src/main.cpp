@@ -5,6 +5,9 @@
 
 int main()
 {
+  NinjaTrap *ted = new NinjaTrap;
+  delete ted;
+  
   NinjaTrap ely("Naruto");
   FragTrap sam("Sam");
   ClapTrap bill("Bill");
