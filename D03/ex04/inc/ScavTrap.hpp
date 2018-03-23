@@ -8,7 +8,9 @@
 class ScavTrap : public ClapTrap
 {
   public:
+    ScavTrap(void);
     ScavTrap(std::string name);
+    ScavTrap(ScavTrap const & src);
     ~ScavTrap(void);
 
     void rangedAttack(std::string const & target);//fait
@@ -17,6 +19,7 @@ class ScavTrap : public ClapTrap
     void singstarAttack(std::string const & target);//fait
     void smellMyFeetAttack(std::string const & target);//fait
     void challengeNewcomer(std::string const & target);
+    ScavTrap &operator=( ScavTrap const & rhs);
 
   private:
     static std::string const _challenges[5];

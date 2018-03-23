@@ -18,10 +18,54 @@ NinjaTrap::NinjaTrap(std::string name): ClapTrap(name)
   return ;
 }
 
+NinjaTrap::NinjaTrap(void): ClapTrap()
+{
+  this->_hit_point = 60;
+  this->_max_hit_point = 60;
+  this->_energy_point = 120;
+  this->_max_energy_point = 120;
+  this->_level = 1;
+  this->_singstar_atk_dmg = 20;
+  this->_melee_atk_dmg = 60;
+  this->_ranged_atk_dmg = 5;
+  this->_smellMyFeet_atk_dmg = 15;
+  this->_intimidate_atk_dmg = 10;
+  this->_armor_dmg_reduc = 0;
+  this->_name = "inconnu ";
+  std::cout << "NINJ4-TP "<<  this->_name << " est inconnu, c'est drole non?" << std::endl;
+  return ;
+}
+
+NinjaTrap::NinjaTrap(NinjaTrap const & src): ClapTrap(src)
+{
+  *this = src;
+  std::cout << "les Ninja sont tous freres" << std::endl;
+  return ;
+}
+
 NinjaTrap::~NinjaTrap(void)
 {
   std::cout <<"-" << this->_name << " : je veux plus etre Ninja, dans les quartier on m'appel JaNin. Demain je deviens Samourai" << std::endl;
   return ;
+}
+
+NinjaTrap  &NinjaTrap::operator=( NinjaTrap const & rhs)
+{
+  if (this == &rhs)
+    return (*this);
+  this->_hit_point = rhs.gethitpoint();
+  this->_max_hit_point = rhs.getmaxhitpoint();
+  this->_energy_point = rhs.getenergypoint();
+  this->_max_energy_point = rhs.getmaxenergypoint();
+  this->_level = rhs.getlevel();
+  this->_singstar_atk_dmg = rhs.getSingstarAttackAmount();
+  this->_melee_atk_dmg = rhs.getMeleeAttackAmount();
+  this->_ranged_atk_dmg = rhs.getRangedAttackAmount();
+  this->_smellMyFeet_atk_dmg = rhs.getSMFAttackAmount();
+  this->_intimidate_atk_dmg = rhs.getIntimidationAttackAmount();
+  this->_armor_dmg_reduc = rhs.getArmorReducAmount();
+  this->_name = rhs.getname();
+  return (*this);
 }
 
 void NinjaTrap::ninjaShoebox(FragTrap & target)
@@ -31,7 +75,7 @@ void NinjaTrap::ninjaShoebox(FragTrap & target)
   return ;
 }
 
-void NinjaTrap::ninjaShoebox(ScavTrap & target)
+void NinjaTrap::ninjaShoebox(NinjaTrap & target)
 {
   std::cout << "Regle numero un : ne jamais etre dans la meme piece qu'un Ninja." << std::endl << "Regel numero 2 : l'esprit d'un Ninja est tellement pure qu'il pense que le corps n'a besoin d'etre lavé (42 est un regroupement de Ninja)" << std::endl << target.getname() << " recoit " << this->_smellMyFeet_atk_dmg << " points de degats a cause de la regle numero 2" << std::endl;
   target.takeDamage(this->_smellMyFeet_atk_dmg);
@@ -46,7 +90,7 @@ void NinjaTrap::ninjaShoebox(ClapTrap & target)
   return ;
 }
 
-void NinjaTrap::ninjaShoebox(NinjaTrap & target)
+void NinjaTrap::ninjaShoebox(ScavTrap & target)
 {
   std::cout << this->_name << " effectue ca fameuse dans de la victoire apprise lors de son entrainement en siberie. Vous pouvez admirer les videos de son professeur de danse a cette adresse https://www.youtube.com/watch?v=6yA3ieJynxQ " << target.getname() << " recoit " << this->_ranged_atk_dmg << " points de degats." << std::endl;
   target.takeDamage(this->_ranged_atk_dmg);

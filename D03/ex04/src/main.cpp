@@ -7,6 +7,8 @@
 
 int main()
 {
+  SuperTrap *bill = new SuperTrap("bill");
+  delete bill;
   FragTrap sam("sam");
   SuperTrap jack("jack");
   jack.vaulthunter_dot_exe("knock knock");

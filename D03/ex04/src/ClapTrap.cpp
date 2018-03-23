@@ -2,15 +2,34 @@
 
 ClapTrap::ClapTrap(std::string name): _name(name)
 {
-  std::cout << "CL4P-TP "<<  this->_name << " activation" << std::endl;
-  std::cout << "-" << this->_name << " : oyez oyez, aclamez la venue du nouveau ClapTrap" << std::endl;
+  std::cout << "oyez oyez, aclamez la venue du nouveau ClapTrap" << std::endl;
   return ;
+}
+
+ClapTrap::ClapTrap( void )
+{
+	std::cout << "ClapTrap n'a rien, ni nom ni volonté de se battre" << std::endl;
+	return ;
+}
+
+ClapTrap::ClapTrap( ClapTrap const & src )
+{
+	*this = src;
+	std::cout << "clone de ClapTrap" << std::endl;
+	return ;
 }
 
 ClapTrap::~ClapTrap(void)
 {
-  std::cout << "-"  << this->_name << " : ClapTrap est mort, vive ClapTrap" << std::endl;
+  std::cout << this->_name << " :ClapTrap est mort, vive ClapTrap" << std::endl;
   return ;
+}
+
+ClapTrap	& ClapTrap::operator=( ClapTrap const & rhs )
+{
+	if (this != &rhs)
+		*this = rhs;
+	return *this;
 }
 
 void  ClapTrap::takeDamage(unsigned int amount)
@@ -78,4 +97,29 @@ int ClapTrap::getSingstarAttackAmount(void) const
 int ClapTrap::getSMFAttackAmount(void) const
 {
   return (this->_smellMyFeet_atk_dmg);
+}
+
+int ClapTrap::getmaxhitpoint(void) const
+{
+  return (this->_max_hit_point);
+}
+
+int ClapTrap::getenergypoint(void) const
+{
+  return (this->_energy_point);
+}
+
+int ClapTrap::getmaxenergypoint(void) const
+{
+  return (this->_max_energy_point);
+}
+
+int ClapTrap::getlevel(void) const
+{
+  return (this->_level);
+}
+
+int ClapTrap::getArmorReducAmount(void) const
+{
+  return (this->_armor_dmg_reduc);
 }

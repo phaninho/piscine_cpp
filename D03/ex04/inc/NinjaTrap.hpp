@@ -8,6 +8,8 @@
 class NinjaTrap : virtual public ClapTrap
 {
   public:
+    NinjaTrap(void);
+    NinjaTrap(NinjaTrap const & src);
     NinjaTrap(std::string name);
     ~NinjaTrap(void);
     void rangedAttack(std::string const & target);//fait
@@ -19,6 +21,7 @@ class NinjaTrap : virtual public ClapTrap
     void ninjaShoebox(ScavTrap & target);
     void ninjaShoebox(ClapTrap & target);
     void ninjaShoebox(NinjaTrap & target);
+    NinjaTrap &operator=( NinjaTrap const & rhs);
 };
 
 #endif
