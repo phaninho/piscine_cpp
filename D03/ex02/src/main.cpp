@@ -4,6 +4,8 @@
 
 int main()
 {
+  ClapTrap *tss = new ClapTrap("billy");
+  delete tss;
   ScavTrap ely("ely");
   FragTrap sam("sam");
   std::cout << std::endl;

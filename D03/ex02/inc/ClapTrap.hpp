@@ -7,7 +7,9 @@
 class ClapTrap
 {
   public:
+    ClapTrap(void);
     ClapTrap(std::string name);
+    ClapTrap( ClapTrap const & src );
     ~ClapTrap(void);
 
     void takeDamage(unsigned int amount);//fait
@@ -18,9 +20,16 @@ class ClapTrap
     int getIntimidationAttackAmount(void) const;//fait
     int getSingstarAttackAmount(void) const;//fait
     int getSMFAttackAmount(void) const;//fait
+    int getmaxhitpoint(void) const;
+    int getenergypoint(void) const;
+    int getmaxenergypoint(void) const;
+    int getlevel(void) const;
+    int getArmorReducAmount(void) const;
     void _sethitpoint(unsigned int amount);//fait
     void _setEnergyPoint(unsigned int amount);
     void beRepaired(unsigned int amount);//fair
+    ClapTrap	&operator=( ClapTrap const & rhs );
+
 
   protected:
     int _hit_point;
