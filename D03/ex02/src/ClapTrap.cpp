@@ -8,7 +8,7 @@ ClapTrap::ClapTrap(std::string name): _name(name)
 
 ClapTrap::ClapTrap( void )
 {
-	std::cout << "ClapTrap n'a rien, ni non ni volonté de se battre" << std::endl;
+	std::cout << "ClapTrap n'a rien, ni nom ni volonté de se battre" << std::endl;
 	return ;
 }
 
