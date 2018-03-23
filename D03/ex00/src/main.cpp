@@ -3,7 +3,9 @@
 
 int main()
 {
-  // int dmg;
+  FragTrap *rick = new FragTrap("rick");
+  delete rick;
+
   FragTrap tedy("ted");
   FragTrap sam("sam");
   std::cout << std::endl;

@@ -21,10 +21,55 @@ FragTrap::FragTrap(std::string name): _name(name)
   return ;
 }
 
+FragTrap::FragTrap(void)
+{
+  this->_hit_point = 100;
+  this->_max_hit_point = 100;
+  this->_energy_point = 100;
+  this->_max_energy_point = 100;
+  this->_level = 1;
+  this->_singstar_atk_dmg = 40;
+  this->_melee_atk_dmg = 30;
+  this->_ranged_atk_dmg = 20;
+  this->_smellMyFeet_atk_dmg = 15;
+  this->_intimidate_atk_dmg = 10;
+  this->_armor_dmg_reduc = 5;
+  this->_name = "inconnu"
+  std::cout << "FR4G-TP "<<  this->_name << " activation" << std::endl;
+  std::cout << "-" << this->_name << " : je n'ai pas de nom." << std::endl;
+  return ;
+}
+
+FragTrap::FragTrap(FragTrap const & src)
+{
+  *this = src;
+  std::cout << "On se ressemble pourtant on ne vie pas a la meme adresse" << std::endl;
+  return ;
+}
+
 FragTrap::~FragTrap(void)
 {
   std::cout <<"-" << this->_name << " : Err... Je ne -- Je ne suis pas la! Je-Je-Je-Je... j'ai quité le building, c'est ce que j'ai fait! Je suis parti! Regarde!" << std::endl;
   return ;
+}
+
+FragTrap  &FragTrap::operator=( FragTrap const & rhs)
+{
+  if (this == &rhs)
+    return (*this);
+  this->_hit_point = rhs.gethitpoint();
+  this->_max_hit_point = rhs.getmaxhitpoint();
+  this->_energy_point = rhs.getenergypoint();
+  this->_max_energy_point = rhs.getmaxenergypoint();
+  this->_level = rhs.getlevel();
+  this->_singstar_atk_dmg = rhs.getSingstarAttackAmount();
+  this->_melee_atk_dmg = rhs.getMeleeAttackAmount();
+  this->_ranged_atk_dmg = rhs.getRangedAttackAmount();
+  this->_smellMyFeet_atk_dmg = rhs.getSMFAttackAmount();
+  this->_intimidate_atk_dmg = rhs.getIntimidationAttackAmount();
+  this->_armor_dmg_reduc = rhs.getArmorReducAmount();
+  this->_name = rhs.getname();
+  return (*this);
 }
 
 void   FragTrap::singstarAttack(std::string const & target)
@@ -129,4 +174,29 @@ int FragTrap::getSingstarAttackAmount(void) const
 int FragTrap::getSMFAttackAmount(void) const
 {
   return (this->_smellMyFeet_atk_dmg);
+}
+
+int FragTrap::getmaxhitpoint(void) const
+{
+  return (this->_max_hit_point);
+}
+
+int FragTrap::getenergypoint(void) const
+{
+  return (this->_energy_point);
+}
+
+int FragTrap::getmaxenergypoint(void) const
+{
+  return (this->_max_energy_point);
+}
+
+int FragTrap::getlevel(void) const
+{
+  return (this->_level);
+}
+
+int FragTrap::getArmorReducAmount(void) const
+{
+  return (this->_armor_dmg_reduc);
 }
