@@ -13,12 +13,6 @@ class SuperTrap: public NinjaTrap, public FragTrap
     ~SuperTrap(void);
     void rangedAttack(std::string const & target);
     void meleeAttack(std::string const & target);
-    // void ninjaShoebox(FragTrap & target);
-    // void ninjaShoebox(ScavTrap & target);
-    // void ninjaShoebox(ClapTrap & target);
-    // void ninjaShoebox(NinjaTrap & target);
-    // void ninjaShoebox(SuperTrap & target);
-    // void vaulthunter_dot_exe(std::string const & target);
 };
 
 #endif

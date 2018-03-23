@@ -9,7 +9,7 @@ ClapTrap::ClapTrap(std::string name): _name(name)
 
 ClapTrap::~ClapTrap(void)
 {
-  std::cout << this->_name << " : ClapTrap est mort, vive ClapTrap" << std::endl;
+  std::cout << "-"  << this->_name << " : ClapTrap est mort, vive ClapTrap" << std::endl;
   return ;
 }
 

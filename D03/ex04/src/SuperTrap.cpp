@@ -22,50 +22,13 @@ SuperTrap::~SuperTrap(void)
   std::cout << "Adieux mode cruel" << std::endl;
   return ;
 }
-//
-// void SuperTrap::rangedAttack(std::string const & target)
-// {
-//   FragTrap::rangedAttack(target);
-//   return ;
-// }
-//
-// void SuperTrap::meleeAttack(std::string const & target)
-// {
-//   NinjaTrap::rangedAttack(target);
-//   return ;
-// }
-//
-// void SuperTrap::ninjaShoebox(FragTrap & target)
-// {
-//   NinjaTrap::ninjaShoebox(target)
-//   return ;
-// }
-//
-// void SuperTrap::ninjaShoebox(ScavTrap & target)
-// {
-//   NinjaTrap::ninjaShoebox(target)
-//   return ;
-// }
-//
-// void SuperTrap::ninjaShoebox(ClapTrap & target)
-// {
-//   NinjaTrap::ninjaShoebox(target)
-//   return ;
-// }
-//
-// void SuperTrap::ninjaShoebox(NinjaTrap & target)
-// {
-//   NinjaTrap::ninjaShoebox(target)
-//   return ;
-// }
-//
-// void SuperTrap::ninjaShoebox(SuperTrap & target)
-// {
-//   NinjaTrap::ninjaShoebox(target)
-//   return ;
-// }
-//
-// void SuperTrap::vaulthunter_dot_exe(std::string const & target)
-// {
-//
-// }
+
+void			SuperTrap::meleeAttack(std::string const &target)
+{
+  this->FragTrap::meleeAttack(target);
+}
+
+void			SuperTrap::rangedAttack(std::string const &target)
+{
+  this->NinjaTrap::rangedAttack(target);
+}
