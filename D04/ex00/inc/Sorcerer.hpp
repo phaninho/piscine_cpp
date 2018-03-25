@@ -3,10 +3,12 @@
 
 #include <string>
 #include <iostream>
+#include "Victim.hpp"
 
 class Sorcerer
 {
   public:
+    Sorcerer(void);
     Sorcerer(Sorcerer const & src);
     Sorcerer(std::string name, std::string title);
     ~Sorcerer(void);
@@ -14,7 +16,8 @@ class Sorcerer
     std::string const getname(void) const;
     std::string const gettitle(void) const;
     void introduce(void) const;
-    
+    void polymorph(Victim const & target) const;
+
   private:
     std::string _name;
     std::string _title;
