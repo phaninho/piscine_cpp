@@ -25,3 +25,19 @@ Sorcerer &Sorcerer::operator=(Sorcerer const & rhs)
     *this = rhs;
   return (*this);
 }
+
+std::string const Sorcerer::getname(void) const
+{
+  return (this->_name);
+}
+
+std::string const Sorcerer::gettitle(void) const
+{
+  return (this->_title);
+}
+
+std::ostream  &operator<<(std::ostream & o, Sorcerer const & rhs)
+{
+  o << "I am " << rhs.getname() << ", " << rhs.gettitle() << ", and I like ponies !";
+  return (o);
+}
