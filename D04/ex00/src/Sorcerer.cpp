@@ -56,6 +56,6 @@ Sorcerer &Sorcerer::operator=(Sorcerer const & rhs)
 
 std::ostream  &operator<<(std::ostream & o, Sorcerer const & rhs)
 {
-  o << "I am " << rhs.getname() << ", " << rhs.gettitle() << ", and I like ponies !" << std::endl;
+  o << "I am " << rhs.getname() << ", " << rhs.gettitle() << ", and I like ponies !";
   return (o);
 }

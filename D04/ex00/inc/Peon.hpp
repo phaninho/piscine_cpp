@@ -6,12 +6,14 @@
 class Peon: public Victim
 {
   public:
-    Peon(void);
     Peon(Peon const & src);
     Peon(std::string name);
-    ~Peon(void);
+    virtual ~Peon(void);
     Peon &operator=(Peon const &rhs);
     virtual void getPolymorphed(void) const;
+
+  private:
+    Peon(void);
 };
 
 #endif
