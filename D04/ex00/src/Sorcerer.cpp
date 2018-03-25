@@ -19,11 +19,9 @@ Sorcerer::~Sorcerer(void)
   return ;
 }
 
-Sorcerer &Sorcerer::operator=(Sorcerer const & rhs)
+void Sorcerer::introduce(void) const
 {
-  if (this != &rhs)
-    *this = rhs;
-  return (*this);
+  std::cout << *this << std::endl;
 }
 
 std::string const Sorcerer::getname(void) const
@@ -34,6 +32,13 @@ std::string const Sorcerer::getname(void) const
 std::string const Sorcerer::gettitle(void) const
 {
   return (this->_title);
+}
+
+Sorcerer &Sorcerer::operator=(Sorcerer const & rhs)
+{
+  if (this != &rhs)
+    *this = rhs;
+  return (*this);
 }
 
 std::ostream  &operator<<(std::ostream & o, Sorcerer const & rhs)

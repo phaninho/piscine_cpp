@@ -6,7 +6,7 @@ int main()
   std::cout << *mages << std::endl;
   delete mages;
   Sorcerer mage("Merlin", "Mage");
-  std::cout << mage << std::endl;
+  mage.introduce();
 
   return(0);
 }

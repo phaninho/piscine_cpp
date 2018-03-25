@@ -13,7 +13,8 @@ class Sorcerer
     Sorcerer &operator=(Sorcerer const & rhs);
     std::string const getname(void) const;
     std::string const gettitle(void) const;
-
+    void introduce(void) const;
+    
   private:
     std::string _name;
     std::string _title;
