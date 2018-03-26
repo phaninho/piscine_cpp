@@ -3,6 +3,7 @@
 Character::Character(std::string const & name): _name(name)
 {
     this->setAP(40);
+    this->setWeapon(NULL);
     return ; 
 }
 
@@ -15,6 +16,7 @@ Character::Character(Character const & src)
 Character::Character(void): _name("No name")
 {
     this->setAP(40);
+    this->setWeapon(NULL);    
     return ;    
 }
 
@@ -32,13 +34,14 @@ Character::Character(void): _name("No name")
 
  void Character::equip(AWeapon *weapon)
  {
-     this->setWeapon(weapon);
+     if (weapon)
+        this->setWeapon(weapon);
      return ;
  }
 
 void Character::attack(Enemy *enemy)
-{
-    if (this->getWeapon())
+{    
+    if (enemy != NULL && enemy->getHP() && this->getWeapon())
     {
         int AP = this->getAP();
         int enemyhp = enemy->getHP();
@@ -47,7 +50,13 @@ void Character::attack(Enemy *enemy)
         this->getWeapon()->attack();
         this->setAP(AP - this->getWeapon()->getAPcost());
         enemy->sethp(enemyhp - this->getWeapon()->getDamage());
+        if (enemy->getHP() <= 0)
+        {
+            delete enemy;
+            enemy = NULL;
+        }
     }
+    
     return ;
 }
 
@@ -91,4 +100,13 @@ Character &Character::operator=(Character const &rhs)
     if (this != &rhs)
         *this = rhs;
     return (*this);
+}
+
+std::ostream  &operator<<(std::ostream & o, Character const & rhs)
+{
+    if (rhs.getWeapon())
+        o << rhs.getName() << " has " << rhs.getAP() << " AP and wields a " << rhs.getWeapon()->getname() << std::endl;
+    else
+        o << rhs.getName() << " has " << rhs.getAP() << " AP and is unarmed" << std::endl;
+    return (o);
 }

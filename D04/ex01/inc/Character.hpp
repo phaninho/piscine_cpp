@@ -11,7 +11,7 @@ class Character
         Character(std::string const & name);
         Character(Character const & src);
         Character(void);
-        ~Character(void);
+        virtual ~Character(void);
         void recoverAP(void);
         void equip(AWeapon *weapon);
         void attack(Enemy *enemy);
@@ -28,5 +28,7 @@ class Character
         int _AP;
         AWeapon *_weapon;
 };
+
+std::ostream  &operator<<(std::ostream & o, Character const & rhs);
 
 #endif
