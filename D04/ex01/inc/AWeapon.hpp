@@ -10,16 +10,16 @@ class AWeapon
     AWeapon(void);
     AWeapon(AWeapon const & src);
     AWeapon(std::string const & name, int apcost, int damage);
-    ~AWeapon(void);
-    std::string getname() const;
+    virtual ~AWeapon(void);
+    std::string const getname() const;
     int getAPcost() const;
     int getDamage() const;
-    void attack() const = 0;
+    virtual void attack() const = 0;
     void setname(std::string name);
     void setAPcost(int APcost);
     void setDamage(int damage);
     AWeapon &operator=(AWeapon const &rhs);
-    
+
   private:
     std::string _name;
     int _apcost;

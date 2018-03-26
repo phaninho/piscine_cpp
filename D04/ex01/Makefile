@@ -14,9 +14,9 @@ SRC_PATH = ./src/
 OBJ_PATH = ./obj/
 INC_PATH = ./inc/
 
-SRC_NAME = main.cpp AWeapon.cpp
+SRC_NAME = main.cpp AWeapon.cpp PlasmaRifle.cpp
 OBJ_NAME = $(SRC_NAME:.cpp=.o)
-NAME = Sorcerer
+NAME = War_game
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
