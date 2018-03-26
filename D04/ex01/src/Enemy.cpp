@@ -59,7 +59,7 @@ void Enemy::takeDamage(int damage)
 {
   int hp = this->getHP();
 
-  if (hp < 0)
+  if (hp < 0 || damage <= 0)
     return ;
   else if (hp - damage < 0)
     this->sethp(0);
