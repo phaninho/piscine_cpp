@@ -29,6 +29,6 @@ PowerFist &PowerFist::operator=(PowerFist const &rhs)
 
 void PowerFist::attack() const
 {
-  std::cout << "* piouuu piouuu piouuu *" << std::endl;
+  std::cout << "* pschhh... SBAM! *" << std::endl;
   return ;
 }
