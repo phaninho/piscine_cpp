@@ -28,7 +28,11 @@ Character::Character(void): _name("No name")
  void   Character::recoverAP(void)
  {
      int AP = this->getAP();
-     this->setAP(AP + 10);
+     
+     if (AP + 10 > 40)
+        this->setAP(40);
+     else
+        this->setAP(AP + 10);
      return ;
  }
 
@@ -44,17 +48,23 @@ void Character::attack(Enemy *enemy)
     if (enemy != NULL && enemy->getHP() && this->getWeapon())
     {
         int AP = this->getAP();
-        int enemyhp = enemy->getHP();
-
-        std::cout << this->_name << " attacks " << enemy->getType() << " with a "<< this->getWeapon()->getname() << std::endl;
-        this->getWeapon()->attack();
-        this->setAP(AP - this->getWeapon()->getAPcost());
-        enemy->sethp(enemyhp - this->getWeapon()->getDamage());
-        if (enemy->getHP() <= 0)
+        if (AP >= this->getWeapon()->getAPcost())
         {
-            delete enemy;
-            enemy = NULL;
+            int enemyhp = enemy->getHP();
+
+            std::cout << this->_name << " attacks " << enemy->getType() << " with a "<< this->getWeapon()->getname() << std::endl;
+            this->getWeapon()->attack();
+            this->setAP(AP - this->getWeapon()->getAPcost());
+            enemy->sethp(enemyhp - this->getWeapon()->getDamage());
+            if (enemy->getHP() <= 0)
+            {
+                delete enemy;
+                enemy = NULL;
+            }
         }
+        else 
+            std::cout << this->_name << " miss the attacks with " << this->getWeapon()->getname() << " because he only have " << this->getAP() << " AP left !" << std::endl;
+            
     }
     
     return ;
