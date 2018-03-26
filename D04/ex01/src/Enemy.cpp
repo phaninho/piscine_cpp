@@ -51,7 +51,10 @@ void Enemy::setType(std::string type)
 
 void Enemy::sethp(int hp)
 {
-  this->_hp = hp;
+  if (hp < 0)
+    this->_hp = 0;
+  else
+    this->_hp = hp;
   return ;
 }
 
