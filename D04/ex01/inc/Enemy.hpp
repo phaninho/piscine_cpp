@@ -16,7 +16,7 @@ class Enemy
     void sethp(int hp);
     Enemy &operator=(Enemy const &rhs);
 
-    virtual void takeDamage(int);
+    virtual void takeDamage(int damage);
 
   private:
     int _hp;

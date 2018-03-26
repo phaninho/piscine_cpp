@@ -33,12 +33,37 @@ Enemy &Enemy::operator=(Enemy const &rhs)
   return (*this);
 }
 
-std::string getType(void) const
+std::string Enemy::getType(void) const
 {
   return (this->_type);
 }
 
-int getHP(void) const
+int Enemy::getHP(void) const
 {
     return (this->_hp);
+}
+
+void Enemy::setType(std::string type)
+{
+  this->_type = type;
+  return ;
+}
+
+void Enemy::sethp(int hp)
+{
+  this->_hp = hp;
+  return ;
+}
+
+void Enemy::takeDamage(int damage)
+{
+  int hp = this->getHP();
+
+  if (hp < 0)
+    return ;
+  else if (hp - damage < 0)
+    this->sethp(0);
+  else
+    this->sethp(hp - damage);
+  return ;
 }
