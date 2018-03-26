@@ -1,22 +1,22 @@
-#include "PlasmaRifle.hpp"
+#include "PowerFist.hpp"
 
-PlasmaRifle::PlasmaRifle(void): AWeapon("Plasma Rifle", 5, 21)
+PowerFist::PowerFist(void): AWeapon("Power Fist", 8, 50)
 {
   return ;
 }
 
-PlasmaRifle::PlasmaRifle(PlasmaRifle const & src)
+PowerFist::PowerFist(PowerFist const & src)
 {
   *this = src;
   return ;
 }
 
-PlasmaRifle::~PlasmaRifle(void)
+PowerFist::~PowerFist(void)
 {
   return ;
 }
 
-PlasmaRifle &PlasmaRifle::operator=(PlasmaRifle const &rhs)
+PowerFist &PowerFist::operator=(PowerFist const &rhs)
 {
   if (this != &rhs)
   {
@@ -27,7 +27,7 @@ PlasmaRifle &PlasmaRifle::operator=(PlasmaRifle const &rhs)
   return (*this);
 }
 
-void PlasmaRifle::attack() const
+void PowerFist::attack() const
 {
   std::cout << "* piouuu piouuu piouuu *" << std::endl;
   return ;

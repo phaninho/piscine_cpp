@@ -2,7 +2,7 @@
 #define PLASMARIFLE_HPP
 
 #include "AWeapon.hpp"
-#include <iostream>
+// #include <iostream>
 
 class PlasmaRifle: public AWeapon
 {
