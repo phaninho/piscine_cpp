@@ -5,6 +5,8 @@
 #include "RadScorpion.hpp"
 #include "PowerFist.hpp"
 #include "SuperMutant.hpp"
+#include "ToothBrush.hpp"
+#include "MotherInLaw.hpp"
 
 // #include <iostream>
 
@@ -18,8 +20,10 @@ int main()
   
   Enemy* a = new SuperMutant();  
   Enemy* b = new RadScorpion();
+  Enemy* c = new MotherInLaw();
   AWeapon* pr = new PlasmaRifle();
   AWeapon* pf = new PowerFist();
+  AWeapon* tb = new ToothBrush();
   zaz->equip(pr);
   std::cout << *zaz;
   ben->equip(pr);
@@ -29,8 +33,8 @@ int main()
   
   zaz->equip(pf);
   zaz->attack(a);
-  zaz->attack(a);
-  zaz->attack(a);
+  zaz->attack(b);
+  zaz->attack(c);
   zaz->attack(a);
 
   zaz->attack(b);
@@ -38,12 +42,23 @@ int main()
   zaz->attack(b);
   std::cout << *zaz;  
   zaz->recoverAP();
+  zaz->equip(tb);
   std::cout << *zaz;
-  zaz->equip(pr);
+  zaz->attack(c);  
+  zaz->equip(pf);
+  zaz->recoverAP();
+  zaz->recoverAP();
+  zaz->recoverAP();
+  zaz->recoverAP();    
   std::cout << *zaz;
   zaz->attack(b);
   std::cout << *zaz;
+  zaz->attack(c);
+  zaz->attack(c);
+  zaz->attack(c);
+  zaz->attack(c);
   zaz->attack(b);
+  zaz->equip(tb);  
   std::cout << *zaz;
   return 0;
 }

@@ -14,7 +14,8 @@ SRC_PATH = ./src/
 OBJ_PATH = ./obj/
 INC_PATH = ./inc/
 
-SRC_NAME = main.cpp AWeapon.cpp PlasmaRifle.cpp Enemy.cpp SuperMutant.cpp RadScorpion.cpp Character.cpp PowerFist.cpp
+SRC_NAME = main.cpp AWeapon.cpp PlasmaRifle.cpp Enemy.cpp SuperMutant.cpp RadScorpion.cpp \
+	Character.cpp PowerFist.cpp ToothBrush.cpp MotherInLaw.cpp
 OBJ_NAME = $(SRC_NAME:.cpp=.o)
 NAME = War_game
 
