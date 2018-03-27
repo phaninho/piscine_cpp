@@ -36,5 +36,5 @@ AMateria &AMateria::operator=(AMateria const & rhs)
 {
     if (this != &rhs)
         *this = src;
-    return (this);
+    return (*this);
 }

@@ -27,16 +27,15 @@ Cure* Cure::clone() const
     return (clone);
 }
 
-
 void Cure::use(ICharacter& target)
 {
     this->xp_ += 10;
-    std::cout << "write something" << std::endl;
+    std::cout << "* heals " << target->getName() << "’s wounds *" << std::endl;
 }
 
 Cure &Cure::operator=(Cure const & rhs)
 {
     if (this != &rhs)
         *this = rhs;
-    return (this);
+    return (*this);
 }

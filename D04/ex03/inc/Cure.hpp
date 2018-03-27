@@ -10,7 +10,7 @@ class Cure : public AMateria
         Cure(std::string const & type);
         Cure(Cure const & src);
         ~Cure(void);
-        Cure &operator=(Cure const & rhs)
+        Cure &operator=(Cure const & rhs);
         virtual Cure* clone() const;
         virtual void use(ICharacter& target);
 };
