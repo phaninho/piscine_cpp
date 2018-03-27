@@ -9,6 +9,7 @@ int main()
     ISquad* vlc = new Squad;
     vlc->push(bob);
     vlc->push(jim);
+    
         // std::cout << vlc->getCount() << std::endl;            
 
     for (int i = 0; i < vlc->getCount(); ++i)

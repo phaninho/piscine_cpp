@@ -1,5 +1,6 @@
 #include "Squad.hpp"
 #include <iostream>
+
 Squad::Squad(void): _units(0), _squad(0)
 {
     return ;
@@ -42,7 +43,7 @@ Squad &Squad::operator=(Squad const & rhs)
     tmp = rhs._squad;
     while (tmp)
     {
-        this->push(tmp->squadUnit);
+        this->push(tmp->squadUnit->clone());
         tmp = tmp->next;
     }
     return (*this);
@@ -57,41 +58,34 @@ ISpaceMarine* Squad::getUnit(int i)
 {
     t_squadList *tmp = this->_squad;
     int j = 0;
-    // std::cout << i << std::endl;            
+
     if (!tmp)
         return (0);
     else if (i == 0)
         return (tmp->squadUnit);
-    while (j < i)
-    {        
-            // std::cout << j << " sur " << i << std::endl;                        
-        if (tmp)
-        {
-            // std::cout << "ici" << std::endl;
-            if (tmp->next)                        
-                tmp = tmp->next;
-        }
-        else
-            return (0);
-        j++;
-
-    }
-    if (i == j && tmp)
+    while (tmp)
     {
-        std::cout << "ok" << std::endl;                        
-        return (tmp->squadUnit);
+        std::cout << j <<" sur " << i << std::endl;            
+        if (i == j)
+        {
+            std::cout << " ok " << std::endl;            
+            return (tmp->squadUnit);
+        }
+        std::cout << " avant next " << std::endl;            
+        tmp = tmp->next;
+        std::cout << " apres next " << std::endl;            
+        j++;
     }
-                // std::cout << i << std::endl;                        
-
+        std::cout << " sortie " << std::endl;            
     return (0);
 }
 
 int Squad::push(ISpaceMarine *squad)
 {
-    int i = 0;
+    t_squadList *tmp = this->_squad;
+    
     if (!squad)
         return (this->_units);
-    t_squadList *tmp = this->_squad;
     if (!tmp)
     {
         this->_squad = new t_squadList;
@@ -100,27 +94,18 @@ int Squad::push(ISpaceMarine *squad)
         this->_units = 1;
         return (this->_units);        
     }
-    while (tmp)
-    {
-        i++;                
+    while (tmp->next)
+    {               
         if (tmp->squadUnit == squad)
-        {
-            i = -1;
             break ;
-        }
-        tmp = tmp->next;
-        if (!tmp)
-        {            
-            tmp = new t_squadList;
-            tmp->squadUnit = squad;
-            tmp->next = 0;
-            i++;
-            break ;
-        }                
-    }    
-    if (i == -1)
-        i = this->_units;
-    else
-        this->_units = i;
-    return (i);
+        tmp = tmp->next;         
+    }         
+    tmp->next = new t_squadList;
+    tmp = tmp->next;
+    tmp->squadUnit = squad;
+    // squad->battleCry();
+    tmp->next = 0;
+    this->_units++;
+        
+    return (this->_units);
 }
