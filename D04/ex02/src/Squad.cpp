@@ -65,18 +65,11 @@ ISpaceMarine* Squad::getUnit(int i)
         return (tmp->squadUnit);
     while (tmp)
     {
-        std::cout << j <<" sur " << i << std::endl;            
         if (i == j)
-        {
-            std::cout << " ok " << std::endl;            
             return (tmp->squadUnit);
-        }
-        std::cout << " avant next " << std::endl;            
         tmp = tmp->next;
-        std::cout << " apres next " << std::endl;            
         j++;
     }
-        std::cout << " sortie " << std::endl;            
     return (0);
 }
 
@@ -103,7 +96,6 @@ int Squad::push(ISpaceMarine *squad)
     tmp->next = new t_squadList;
     tmp = tmp->next;
     tmp->squadUnit = squad;
-    // squad->battleCry();
     tmp->next = 0;
     this->_units++;
         
