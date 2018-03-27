@@ -14,7 +14,7 @@ SRC_PATH = ./src/
 OBJ_PATH = ./obj/
 INC_PATH = ./inc/
 
-SRC_NAME = main.cpp Squad.cpp
+SRC_NAME = main.cpp Squad.cpp TacticalMarine.cpp AssaultTerminator.cpp
 OBJ_NAME = $(SRC_NAME:.cpp=.o)
 NAME = Squad_game
 

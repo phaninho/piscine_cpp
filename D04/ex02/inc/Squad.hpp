@@ -1,5 +1,5 @@
 #ifndef SQUAD_HPP
-#define SQAUD_HPP
+#define SQUAD_HPP
 
 #include "ISquad.hpp"
 
@@ -7,7 +7,7 @@ class Squad : public ISquad
 {
     typedef struct s_squadList
     {
-        ISpaceMarine squadList;
+        ISpaceMarine *squadUnit;
         struct s_squadList *next;
     }               t_squadList;
     
@@ -23,7 +23,7 @@ class Squad : public ISquad
 
     private:
         int _units;
-        ISpaceMarine *_squad;
+        t_squadList *_squad;
 };
 
 #endif
