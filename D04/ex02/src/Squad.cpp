@@ -56,20 +56,34 @@ int Squad::getCount() const
 ISpaceMarine* Squad::getUnit(int i)
 {
     t_squadList *tmp = this->_squad;
+    int j = 0;
+    // std::cout << i << std::endl;            
     if (!tmp)
         return (0);
     else if (i == 0)
         return (tmp->squadUnit);
-    for (int j = 0; j < i; j++)
-    {
-        if (tmp && i == j)
-            return (tmp->squadUnit);
-        if (tmp->next)
-            tmp = tmp->next;
+    while (j < i)
+    {        
+            // std::cout << j << " sur " << i << std::endl;                        
+        if (tmp)
+        {
+            // std::cout << "ici" << std::endl;
+            if (tmp->next)                        
+                tmp = tmp->next;
+        }
         else
             return (0);
+        j++;
+
     }
-    return (tmp->squadUnit);
+    if (i == j && tmp)
+    {
+        std::cout << "ok" << std::endl;                        
+        return (tmp->squadUnit);
+    }
+                // std::cout << i << std::endl;                        
+
+    return (0);
 }
 
 int Squad::push(ISpaceMarine *squad)
@@ -88,23 +102,22 @@ int Squad::push(ISpaceMarine *squad)
     }
     while (tmp)
     {
+        i++;                
         if (tmp->squadUnit == squad)
         {
             i = -1;
             break ;
         }
         tmp = tmp->next;
-        i++;
         if (!tmp)
-        {
-            tmp->next = new t_squadList;
-            tmp = tmp->next;
+        {            
+            tmp = new t_squadList;
             tmp->squadUnit = squad;
             tmp->next = 0;
-            this->_units = i;
+            i++;
             break ;
-        }
-    }
+        }                
+    }    
     if (i == -1)
         i = this->_units;
     else
