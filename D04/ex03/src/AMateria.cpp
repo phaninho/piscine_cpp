@@ -45,6 +45,12 @@ void AMateria::setXP(unsigned int xp)
     return ;
 }
 
+void AMateria::setType(std::string type)
+{
+    this->_type = type;
+    return ;
+}
+
 AMateria &AMateria::operator=(AMateria const & rhs)
 {
     if (this != &rhs)

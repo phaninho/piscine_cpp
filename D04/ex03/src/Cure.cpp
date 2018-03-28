@@ -31,6 +31,9 @@ void Cure::use(ICharacter& target)
 Cure &Cure::operator=(Cure const & rhs)
 {
     if (this != &rhs)
-        *this = rhs;
+    {
+        this->setXP(rhs.getXP());
+        this->setType(rhs.getType());
+    }
     return (*this);
 }

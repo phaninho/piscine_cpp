@@ -61,7 +61,10 @@ AMateria * Character::getMateriaBox(int i) const
 void Character::equip(AMateria* m)
 {
     if (m || this->_materiaNb < 4)
+    {
         this->_materiaBox[this->_materiaNb] = m;
+        this->_materiaNb++;
+    }
     return ;
 }
 
@@ -74,9 +77,6 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-    if (this->_materiaBox[0])
-        std::cout<< "ok" << std::endl;
-
     if (idx <= this->_materiaNb && this->_materiaBox[idx])
         this->_materiaBox[idx]->use(target);
     return ;

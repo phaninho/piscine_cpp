@@ -20,10 +20,10 @@ void MateriaSource::learnMateria(AMateria* mat)
 {
     if (this->_matNb < 4 && mat)
     {
-        this->_matBox[this->_matNb] = mat;
+        this->_matBook[this->_matNb] = mat;
         this->_matNb++;
     }
-        std::cout << "laaaaa " << this->_matBox[this->_matNb]->getType() << std::endl;
+    // std::cout << "laaaaa " << this->_matBook[this->_matNb - 1]->getType() << std::endl;
 
 }
 
@@ -33,8 +33,8 @@ AMateria *MateriaSource::createMateria(std::string const & type)
         return (0);
     for (int i = 0; i < this->_matNb; i++)
     {
-        if (this->_matBox[i]->getType() == type)
-            return (this->_matBox[i]->clone());
+        if (this->_matBook[i]->getType() == type)
+            return (this->_matBook[i]->clone());
     }
     return (0);
 }

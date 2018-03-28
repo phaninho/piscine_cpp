@@ -31,6 +31,9 @@ void Ice::use(ICharacter& target)
 Ice &Ice::operator=(Ice const & rhs)
 {
     if (this != &rhs)
-        *this = rhs;
+    {
+        this->setXP(rhs.getXP());
+        this->setType(rhs.getType());
+    }
     return (*this);
 }
