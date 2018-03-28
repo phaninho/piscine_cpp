@@ -19,8 +19,27 @@ int main()
     tmp = src->createMateria("cure");
     zaz->equip(tmp);
     ICharacter* bob = new Character("bob");
+    tmp = src->createMateria("ice");
+    bob->equip(tmp);
+    tmp = src->createMateria("cure");
+    bob->equip(tmp);
+
+    zaz->use(0, *bob);
+    zaz->use(0, *bob);
+    zaz->use(0, *bob);
+    zaz->use(0, *bob);
+    zaz->use(0, *bob);    
+    zaz->use(1, *bob);
+    zaz->unequip(0);
     zaz->use(0, *bob);
     zaz->use(1, *bob);
+
+    bob->use(0, *zaz);
+    bob->use(1, *zaz);
+    bob->unequip(1);
+    bob->use(0, *zaz);
+    bob->use(1, *zaz);
+
     delete bob;
     delete zaz;
     delete src;

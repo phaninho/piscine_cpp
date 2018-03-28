@@ -51,6 +51,12 @@ void AMateria::setType(std::string type)
     return ;
 }
 
+void AMateria::showMateriaXP()
+{
+    std::cout << this->_type << " Materia has " << this->xp_ << " Xp !" << std::endl;
+    return ;
+}
+
 AMateria &AMateria::operator=(AMateria const & rhs)
 {
     if (this != &rhs)

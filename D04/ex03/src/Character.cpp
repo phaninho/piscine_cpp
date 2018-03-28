@@ -71,7 +71,10 @@ void Character::equip(AMateria* m)
 void Character::unequip(int idx)
 {
     if (this->_materiaNb >= idx)
+    {
         this->_materiaBox[idx] = 0;
+        this->_materiaNb--;
+    }
     return ;
 }
 
@@ -79,5 +82,7 @@ void Character::use(int idx, ICharacter& target)
 {
     if (idx <= this->_materiaNb && this->_materiaBox[idx])
         this->_materiaBox[idx]->use(target);
+    else
+        std::cout << "No materia found at index " << idx << std::endl;
     return ;
 }

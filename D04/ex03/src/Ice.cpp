@@ -26,6 +26,7 @@ void Ice::use(ICharacter& target)
     unsigned int xp = this->getXP();
     this->setXP(xp + 10);
     std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+    this->showMateriaXP();
 }
 
 Ice &Ice::operator=(Ice const & rhs)
