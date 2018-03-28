@@ -1,17 +1,13 @@
 #include "Ice.hpp"
 
-Ice::Ice(void)
-{
-    return ;
-}
-
-Ice::Ice(std::string const & type): AMateria("ice")
+Ice::Ice(void): AMateria("ice")
 {
     return ;
 }
 
 Ice::Ice(Ice const & src)
 {
+    *this = src;
     return ;
 }
 
@@ -22,15 +18,14 @@ Ice::~Ice(void)
 
 Ice* Ice::clone() const
 {
-    Ice *clone = new Ice;
-    clone = this;
-    return (clone);
+    return (new Ice(*this));
 }
 
 void Ice::use(ICharacter& target)
 {
-    this->xp_ += 10;
-    std::cout << "* shoots an ice bolt at " << target->getName() << " *" << std::endl;
+    unsigned int xp = this->getXP();
+    this->setXP(xp + 10);
+    std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }
 
 Ice &Ice::operator=(Ice const & rhs)

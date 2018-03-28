@@ -32,9 +32,25 @@ unsigned int AMateria::getXP() const
     return (this->xp_);
 }
 
+void AMateria::use(ICharacter& target)
+{
+    this->xp_ += 10;
+    std::cout << target.getName() << " attacked with " << this->_type << " materia !" << std::endl; 
+    return ;
+}
+
+void AMateria::setXP(unsigned int xp)
+{
+    this->xp_ = xp;
+    return ;
+}
+
 AMateria &AMateria::operator=(AMateria const & rhs)
 {
     if (this != &rhs)
-        *this = src;
+    {
+        this->xp_ = rhs.xp_;
+        this->_type = rhs._type;
+    }
     return (*this);
 }

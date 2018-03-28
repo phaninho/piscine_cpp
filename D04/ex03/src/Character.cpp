@@ -1,4 +1,5 @@
 #include "Character.hpp"
+#include "AMateria.hpp"
 
 Character::Character(void): _name("No name"), _materiaNb(0)
 {
@@ -28,19 +29,21 @@ Character &Character::operator=(Character const & rhs)
     if (this != &rhs)
     {
         this->_name = rhs.getName();
-        this->_materiaBox = rhs.getMateriaBox();
         this->_materiaNb = rhs.getMateriaNb();
+        for (int i = 0; i < this->_materiaNb; i++)
+            this->_materiaBox[i] = rhs.getMateriaBox(i);
+        
     }
     return (*this);
 }
 
-void Character::init(AMateria *box)
+void Character::init(AMateria **box)
 {
     for (int i = 0; i < 4; i++)
         box[i] = 0;
 }
 
-int const Character::getMateriaNb(void) const
+int Character::getMateriaNb(void) const
 {
     return (this->_materiaNb);
 }
@@ -50,9 +53,9 @@ std::string const & Character::getName() const
     return (this->_name);
 }
 
-AMateria const * Character::getMateriaBox(void) const
+AMateria * Character::getMateriaBox(int i) const
 {
-    return (this->_materiaBox);
+    return (this->_materiaBox[i]);
 }
 
 void Character::equip(AMateria* m)
@@ -71,7 +74,10 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-    if (idx <= this->_materiaNb)
-        this->_materiaBox[idx].use(target);
+    if (this->_materiaBox[0])
+        std::cout<< "ok" << std::endl;
+
+    if (idx <= this->_materiaNb && this->_materiaBox[idx])
+        this->_materiaBox[idx]->use(target);
     return ;
 }

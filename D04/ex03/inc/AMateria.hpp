@@ -18,6 +18,7 @@ class AMateria
         ~AMateria();
         std::string const & getType() const; //Returns the materia type
         unsigned int getXP() const; //Returns the Materia's XP
+        void setXP(unsigned int xp);
         virtual AMateria* clone() const = 0;
         virtual void use(ICharacter& target);
 

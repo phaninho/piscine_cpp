@@ -15,15 +15,15 @@ class Character: public ICharacter
         virtual void use(int idx, ICharacter& target);
 
         virtual std::string const & getName() const;
-        AMateria const *getMateriaBox(void) const;
-        int const getMateriaNb(void) const;
-        void init(AMateria *box);
+        AMateria *getMateriaBox(int i) const;
+        int getMateriaNb(void) const;
+        void init(AMateria **box);
 
         Character &operator=(Character const & rhs);
 
     private:
         std::string _name;
-        AMateria _materiaBox[4];
+        AMateria *_materiaBox[4];
         int _materiaNb;
 };
 
