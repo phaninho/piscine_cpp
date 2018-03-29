@@ -35,7 +35,7 @@ AsteroBocal &AsteroBocal::operator=(AsteroBocal const & rhs)
 
 std::string AsteroBocal::beMined(StripMiner *src) const
 {
-
+    return ("Flavium");
 }
 
 std::string AsteroBocal::beMined(DeepCoreMiner *src) const

@@ -18,7 +18,7 @@ DeepCoreMiner::~DeepCoreMiner(void)
 
 void DeepCoreMiner::mine(IAsteroid *ast)
 {
-    std::cout << "* mining deep ... got RESULT ! *" << std::endl;
+    std::cout << "* mining deep ... got " << ast->beMined() << " ! *" << std::endl;
 }
 
 
