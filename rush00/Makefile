@@ -3,38 +3,43 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: stmartin <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: agrumbac <agrumbac@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/01/27 18:56:34 by stmartin          #+#    #+#              #
-#    Updated: 2018/03/08 20:08:17 by stmartin         ###   ########.fr        #
+#    Created: 2018/03/15 16:59:39 by agrumbac          #+#    #+#              #
+#    Updated: 2018/04/01 18:38:19 by stmartin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC_PATH = ./src/
-OBJ_PATH = ./obj/
-INC_PATH = ./inc/
+NAME = ft_retro
 
-SRC_NAME = main.cpp Box.cpp
+CC = clang++
+
+CPPFLAGS = -Wall -Wextra -Werror -g -std=c++98 -fsanitize=address
+
+SRC_PATH = ./srcs/
+OBJ_PATH = ./obj/
+INC_PATH = ./includes/
+
+SRC_NAME = main.cpp A_spacecraft.cpp A_ufo.cpp Enemy.cpp Game.cpp Missile.cpp Player.cpp Star.cpp Menu.cpp Boss.cpp Bonus.cpp
+
+HDR_NAME = settings.hpp
+
 OBJ_NAME = $(SRC_NAME:.cpp=.o)
-NAME = SpaceInvaders
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
 INC = $(addprefix -I,$(INC_PATH))
-
-CC = g++
-CFLAGS = -Wall -Wextra -Werror
 
 all:
 	@echo "\033[36;44m Make $(NAME) \033[0m"
 	@make $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) -lcurses $(CFLAGS) $^ -o $@
+	$(CC) -lcurses $(CPPFLAGS) $^ -o $@
 
-$(OBJ_PATH)%.o: $(SRC_PATH)%.cpp
+$(OBJ_PATH)%.o: $(SRC_PATH)%.cpp #$(INC_PATH)%.hpp $(HDR_NAME)
 	@mkdir -p $(OBJ_PATH)
-	$(CC) $(CFLAGS) $(INC) -o $@ -c $<
+	$(CC) $(CPPFLAGS) $(INC) -o $@ -c $<
 
 clean:
 	@echo "\033[32;44m Make clean $(NAME) \033[0m"
@@ -45,7 +50,5 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
-
--include $(OBJ:.o=.d)
 
 .PHONY: clean fclean re
