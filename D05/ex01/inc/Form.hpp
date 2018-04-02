@@ -20,21 +20,28 @@ class Form
         std::string const _name;
         bool _isSigned;
         int const _signGradRequest;
-        int const _signGradExec;      
-    
+        int const _signGradExec;
+
     class GradeTooHighException : public std::exception
     {
         public:
             GradeTooHighException(void);
-            ~GradeTooHighException(void) throw();
+            GradeTooHighException(GradeTooHighException const &);
+            virtual ~GradeTooHighException(void) throw();
+
+            GradeTooHighException &		operator=( GradeTooHighException const & rhs );
+
     };
 
     class GradeTooLowException : public std::exception
     {
         public:
             GradeTooLowException(void);
-            ~GradeTooLowException(void) throw();
-    };          
+            GradeTooLowException(GradeTooLowException const &);
+            virtual ~GradeTooLowException(void) throw();
+
+            GradeTooLowException &		operator=( GradeTooLowException const & rhs );
+    };
 };
 
 std::ostream  &operator<<(std::ostream & o, Form const & rhs);

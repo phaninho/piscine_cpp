@@ -12,7 +12,7 @@ Form::Form(std::string name, bool isSigned, int gradreq, int gradexec): _name(na
         if (gradreq < 1 || gradexec < 1)
             throw GradeTooHighException();
         else if (gradreq > 150 || gradexec > 150)
-            throw GradeTooLowException();            
+            throw GradeTooLowException();
     }
     catch (GradeTooHighException & e)
     {
@@ -38,8 +38,8 @@ void Form::signForm(Bureaucrat const & bur, bool b)
         std::cout << bur.getName() << " signs " << *this << std::endl;
     }
     else if (b == 0 || bur.getGrade() > this->getSignGradExec())
-        std::cout << bur.getName() << " cannot sign " << *this << " cause " << bur.getName() << " grade is too low " << std::endl;
-    return ;        
+        std::cout << bur.getName() << " can't sign " << *this << " cause " << bur.getName() << " grade is too low " << std::endl;
+    return ;
 }
 
 void Form::beSigned(Bureaucrat const & bur)
@@ -53,7 +53,7 @@ void Form::beSigned(Bureaucrat const & bur)
                 this->signForm(bur, 1);
             }
             else if (bur.getGrade() > this->getSignGradRequest())
-                throw GradeTooLowException();                        
+                throw GradeTooLowException();
         }
         catch (GradeTooLowException const & e)
         {
