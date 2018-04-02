@@ -9,29 +9,41 @@ class Bureaucrat
 {
     public:
         Bureaucrat(void);
+        Bureaucrat(Bureaucrat const &);
         Bureaucrat(int, std::string);
-        ~Bureaucrat(void);
+        virtual ~Bureaucrat(void);
+
+        Bureaucrat  &operator=(Bureaucrat const & rhs);
+
         std::string const getName(void) const;
         int getGrade(void) const;
+
         void increment(int);
         void decrement(int);
 
     private:
-        int _grade;    
-        std::string const _name;
-    
+        int _grade;
+        std::string _name;
+
     class GradeTooHighException : public std::exception
     {
         public:
             GradeTooHighException(void);
-            ~GradeTooHighException(void) throw();
+            GradeTooHighException(GradeTooHighException const &);
+            virtual ~GradeTooHighException(void) throw();
+
+            GradeTooHighException &		operator=( GradeTooHighException const & rhs );
+
     };
 
     class GradeTooLowException : public std::exception
     {
         public:
             GradeTooLowException(void);
-            ~GradeTooLowException(void) throw();
+            GradeTooLowException(GradeTooLowException const &);
+            virtual ~GradeTooLowException(void) throw();
+
+            GradeTooLowException &		operator=( GradeTooLowException const & rhs );
     };
 };
 

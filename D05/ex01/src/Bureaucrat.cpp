@@ -5,6 +5,12 @@ Bureaucrat::Bureaucrat(void):  _grade(0), _name("no name")
     return ;
 }
 
+Bureaucrat::Bureaucrat(Bureaucrat const & src)
+{
+    *this = src;
+}
+
+
 Bureaucrat::Bureaucrat(int nb, std::string name): _grade(nb), _name(name)
 {
     try
@@ -12,7 +18,7 @@ Bureaucrat::Bureaucrat(int nb, std::string name): _grade(nb), _name(name)
         if (nb < 1)
             throw GradeTooHighException();
         else if (nb > 150)
-            throw GradeTooLowException();            
+            throw GradeTooLowException();
     }
     catch (GradeTooHighException & e)
     {
@@ -30,6 +36,16 @@ Bureaucrat::~Bureaucrat(void)
     return ;
 }
 
+Bureaucrat  &Bureaucrat::operator=(Bureaucrat const & rhs)
+{
+    if (this != &rhs)
+    {
+        this->_grade = rhs._grade;
+        this->_name = rhs._name;
+    }
+    return (*this);
+}
+
 void Bureaucrat::increment(int nb)
 {
     this->_grade -= nb;
@@ -38,7 +54,7 @@ void Bureaucrat::increment(int nb)
         if (this->_grade < 1)
             throw GradeTooHighException();
         else if (this->_grade > 150)
-            throw GradeTooLowException();   
+            throw GradeTooLowException();
     }
     catch (GradeTooHighException & e)
     {
@@ -59,7 +75,7 @@ void Bureaucrat::decrement(int nb)
         if (this->_grade < 1)
             throw GradeTooHighException();
         else if (this->_grade > 150)
-            throw GradeTooLowException();   
+            throw GradeTooLowException();
     }
     catch (GradeTooHighException & e)
     {
