@@ -30,15 +30,17 @@ Form::~Form(void)
     return ;
 }
 
-void Form::signForm(Bureaucrat const & bur, bool b)
+void Form::signForm(Bureaucrat const & bur)
 {
-    if (b == 1 && bur.getGrade() <= this->getSignGradExec())
+    if (this->_isSigned == 0 && bur.getGrade() <= this->getSignGradExec())
     {
         this->_isSigned = 1;
         std::cout << bur.getName() << " signs " << *this << std::endl;
     }
-    else if (b == 0 || bur.getGrade() > this->getSignGradExec())
+    else if (this->_isSigned == 0 || bur.getGrade() > this->getSignGradExec())
         std::cout << bur.getName() << " can't sign " << *this << " cause " << bur.getName() << " grade is too low " << std::endl;
+    else
+        std::cout << this->_name << "is already signed " << std::endl;
     return ;
 }
 
@@ -50,14 +52,14 @@ void Form::beSigned(Bureaucrat const & bur)
         {
             if (bur.getGrade() <= this->getSignGradRequest())
             {
-                this->signForm(bur, 1);
+                this->signForm(bur);
             }
             else if (bur.getGrade() > this->getSignGradRequest())
                 throw GradeTooLowException();
         }
         catch (GradeTooLowException const & e)
         {
-            this->signForm(bur, 0);
+            this->signForm(bur);
         }
     }
     else

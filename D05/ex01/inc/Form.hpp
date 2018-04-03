@@ -15,7 +15,7 @@ class Form
         int getSignGradRequest() const;
         int getSignGradExec() const;
         void beSigned(Bureaucrat const &);
-        void signForm(Bureaucrat const &, bool);
+        void signForm(Bureaucrat const &);
     private:
         std::string const _name;
         bool _isSigned;
