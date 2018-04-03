@@ -5,6 +5,8 @@
 #include <iostream>
 #include <exception>
 
+class AForm;
+
 class Bureaucrat
 {
     public:
@@ -18,8 +20,9 @@ class Bureaucrat
         std::string const getName(void) const;
         int getGrade(void) const;
 
-        void increment(int);
-        void decrement(int);
+        void	 increment(int);
+        void	 decrement(int);
+        void	 executeForm(AForm const & form);
 
     private:
         int _grade;

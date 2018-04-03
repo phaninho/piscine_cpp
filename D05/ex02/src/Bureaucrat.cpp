@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat(void):  _grade(0), _name("no name")
 {
@@ -86,6 +87,17 @@ void Bureaucrat::decrement(int nb)
         std::cout << *this << " is too low" << std::endl;
     }
     return ;
+}
+
+void	 Bureaucrat::executeForm(AForm const & form)
+{
+        if (this->getGrade() <= form.getSignGradExec())
+        {
+            std::cout << this->_name << " executes " << form.getName() << std::endl;
+            form.execute(*this);
+        }
+        else
+            std::cout << this->_name << " don't have the right permission" << std::endl;
 }
 
 std::string const Bureaucrat::getName(void) const

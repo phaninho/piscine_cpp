@@ -6,7 +6,7 @@
 #    By: stmartin <stmartin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/27 18:56:34 by stmartin          #+#    #+#              #
-#    Updated: 2018/04/02 16:04:31 by stmartin         ###   ########.fr        #
+#    Updated: 2018/04/03 15:05:58 by stmartin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ SRC_PATH = ./src/
 OBJ_PATH = ./obj/
 INC_PATH = ./inc/
 
-SRC_NAME = main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp
+SRC_NAME = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 OBJ_NAME = $(SRC_NAME:.cpp=.o)
 NAME = Bureaucrat
 

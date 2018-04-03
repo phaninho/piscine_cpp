@@ -1,11 +1,11 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form(void): _name("no name"), _isSigned(0), _signGradRequest(0), _signGradExec(0)
+AForm::AForm(void): _name("no name"), _isSigned(0), _signGradRequest(0), _signGradExec(0)
 {
     return ;
 }
 
-Form::Form(std::string name, bool isSigned, int gradreq, int gradexec): _name(name), _isSigned(isSigned), _signGradRequest(gradreq), _signGradExec(gradexec)
+AForm::AForm(std::string name, bool isSigned, int gradreq, int gradexec): _name(name), _isSigned(isSigned), _signGradRequest(gradreq), _signGradExec(gradexec)
 {
     try
     {
@@ -25,66 +25,66 @@ Form::Form(std::string name, bool isSigned, int gradreq, int gradexec): _name(na
     return ;
 }
 
-Form::~Form(void)
+AForm::~AForm(void)
 {
     return ;
 }
 
-void Form::signForm(Bureaucrat const & bur, bool b)
+void AForm::signForm(Bureaucrat const & bur)
 {
-    if (b == 1 && bur.getGrade() <= this->getSignGradExec())
+    if (this->_isSigned == 0 && bur.getGrade() <= this->getSignGradExec())
     {
         this->_isSigned = 1;
         std::cout << bur.getName() << " signs " << *this << std::endl;
     }
-    else if (b == 0 || bur.getGrade() > this->getSignGradExec())
+    else if (this->_isSigned == 0 || bur.getGrade() > this->getSignGradExec())
         std::cout << bur.getName() << " can't sign " << *this << " cause " << bur.getName() << " grade is too low " << std::endl;
+    else
+        std::cout << this->_name << "is already signed " << std::endl;
     return ;
 }
 
-void Form::beSigned(Bureaucrat const & bur)
+void AForm::beSigned(Bureaucrat const & bur)
 {
     if (!this->getIsSigned())
     {
         try
         {
             if (bur.getGrade() <= this->getSignGradRequest())
-            {
-                this->signForm(bur, 1);
-            }
+                this->signForm(bur);
             else if (bur.getGrade() > this->getSignGradRequest())
                 throw GradeTooLowException();
         }
         catch (GradeTooLowException const & e)
         {
-            this->signForm(bur, 0);
+            this->signForm(bur);
         }
     }
     else
         std::cout << this->_name << " is already signed " << bur.getName() << ", go find something else to do !" << std::endl;
 }
 
-std::string Form::getName(void) const
+std::string AForm::getName(void) const
 {
     return (this->_name);
 }
 
-bool Form::getIsSigned() const
+bool AForm::getIsSigned() const
 {
     return (this->_isSigned);
 }
 
-int Form::getSignGradRequest() const
+int AForm::getSignGradRequest() const
 {
     return (this->_signGradRequest);
 }
 
-int Form::getSignGradExec() const
+int AForm::getSignGradExec() const
 {
     return (this->_signGradExec);
 }
 
-std::ostream  &operator<<(std::ostream & o, Form const & rhs)
+std::ostream  &operator<<(std::ostream & o, AForm const & rhs)
 {
     o << rhs.getName() << ", form grade request is " << rhs.getSignGradRequest() << " and form grade execution is " << rhs.getSignGradExec();
     if (rhs.getIsSigned())
@@ -95,22 +95,22 @@ std::ostream  &operator<<(std::ostream & o, Form const & rhs)
 }
 
 
-Form::GradeTooHighException::GradeTooHighException(void)
+AForm::GradeTooHighException::GradeTooHighException(void)
 {
     return ;
 }
 
-Form::GradeTooHighException::~GradeTooHighException(void) throw()
+AForm::GradeTooHighException::~GradeTooHighException(void) throw()
 {
     return ;
 }
 
-Form::GradeTooLowException::GradeTooLowException(void)
+AForm::GradeTooLowException::GradeTooLowException(void)
 {
     return ;
 }
 
-Form::GradeTooLowException::~GradeTooLowException(void) throw()
+AForm::GradeTooLowException::~GradeTooLowException(void) throw()
 {
     return ;
 }

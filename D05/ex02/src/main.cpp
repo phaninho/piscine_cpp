@@ -1,27 +1,41 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main()
 {
-    Bureaucrat bob(55, "bob");
-    Form houseForm("House contract", 0, 55, 25);
-    Form warForm("Nueclear Attack", 0, 1, 1);
-    std::cout << bob.getName() << " is grade "<< bob.getGrade() << std::endl;
-    // bob.increment(1);
-    // std::cout << "after increment, " << bob.getName() << " grade "<< bob.getGrade() << std::endl;
-    houseForm.beSigned(bob);
+    Bureaucrat bob(1, "bob");
+    Bureaucrat bil(150, "bil");
 
-    bob.increment(30);
-    std::cout << "after increment, " << bob.getName() << " is grade "<< bob.getGrade() << std::endl;
-    houseForm.beSigned(bob);
+    ShrubberyCreationForm shru("dessine moi un mouton");
+    RobotomyRequestForm robot("BionicBureaucrat");
+    PresidentialPardonForm macron("WTF");
 
-    bob.decrement(34);
-    std::cout << "after decrement, " << bob.getName() << " is grade "<< bob.getGrade() << std::endl;
+    std::cout << "#A Low graded Bureaucrat try access to Form's" << std::endl << std::endl;
 
-    Bureaucrat donald(1, "Donald Trump");
-    warForm.beSigned(donald);
-    std::cout << "Right away after the field be cleansed you can send the SEAL's and let's make America great again ! " << std::endl;
+    bil.executeForm(shru);
+    bil.executeForm(robot);
+    bil.executeForm(macron);
+
+    std::cout << std::endl << "#A High graded Bureaucrat try access to Form's" << std::endl << std::endl;
+
+    bob.executeForm(shru);
+    bob.executeForm(robot);
+    bob.executeForm(macron);
+
+    std::cout << std::endl << "#A High graded Bureaucrat signs Form's" << std::endl << std::endl;
+
+    shru.signForm(bob);
+    robot.signForm(bob);
+    macron.signForm(bob);
+
+    std::cout << std::endl << "#A High graded Bureaucrat try access signed Form's" << std::endl << std::endl;
+
+    bob.executeForm(shru);
+    bob.executeForm(robot);
+    bob.executeForm(macron);
 
     return 0;
 }
