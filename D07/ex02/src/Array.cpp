@@ -6,13 +6,13 @@
 /*   By: stmartin <stmartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/05 14:25:16 by stmartin          #+#    #+#             */
-/*   Updated: 2018/04/05 14:35:45 by stmartin         ###   ########.fr       */
+/*   Updated: 2018/04/05 16:55:31 by stmartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 
-Array::Array( void ): _array(0), _len(0)
+Array::Array<T>( void ): _array(0), _len(0)
 { }
 
 Array::Array( unsigned int len): _array(new T[len]),  _len(len)
@@ -24,9 +24,11 @@ Array::Array(T const & src)
 }
 
 Array::~Array( void )
-{ }
+{
+	delete [] this->_array;
+}
 
-Array &Array::operator=( Array const & rhs )
+T	&Array::operator=( Array const & rhs )
 {
 	if (this != &rhs)
 	{
@@ -37,3 +39,18 @@ Array &Array::operator=( Array const & rhs )
 	}
 	return *this;
 }
+
+T	&Array::operator[]( T array, unsigned int const & rhs )
+{
+	if (array && rhs < this->_len)
+		return this->_array[rhs]
+	else
+		throw std::exception();
+}
+
+unsigned int	size()
+{
+	return this->_len;
+}
+
+std::ostream 	&operator<<( std::ostream & o, T const & array)
