@@ -6,7 +6,7 @@
 /*   By: stmartin <stmartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/06 11:02:37 by stmartin          #+#    #+#             */
-/*   Updated: 2018/04/06 12:02:13 by stmartin         ###   ########.fr       */
+/*   Updated: 2018/04/06 15:58:55 by stmartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ public:
 
     Span &            operator=( Span const & rhs );
 
-    void	           addNumber( unsigned int );
-    // unsigned int       shortestSpan() const;
-    // unsigned int       longestSpan() const;
+    void	           addNumber( int );
+    void	           addNumber( int *, int );
+    int                shortestSpan();
+    int                longestSpan() const;
     unsigned int       getIndex() const;
 
 private:
