@@ -6,7 +6,7 @@
 /*   By: stmartin <stmartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/06 01:45:11 by stmartin          #+#    #+#             */
-/*   Updated: 2018/04/06 02:32:37 by stmartin         ###   ########.fr       */
+/*   Updated: 2018/04/06 16:38:52 by stmartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int     main()
     try
     {
         std::cout << "4: on cherche 42" << std::endl;
-        std::cout << " " << easyfind(lst1, 22) << std::endl;
+        std::cout << " " << easyfind(lst1, 42) << std::endl;
     }
     catch (std::invalid_argument &e)
     {
