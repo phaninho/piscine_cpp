@@ -6,7 +6,7 @@
 /*   By: stmartin <stmartin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/06 11:16:01 by stmartin          #+#    #+#             */
-/*   Updated: 2018/04/06 16:06:41 by stmartin         ###   ########.fr       */
+/*   Updated: 2018/04/06 16:37:42 by stmartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,11 @@ void	         Span::addNumber( int * n , int size)
 {
     (void)n;
     this->_size += size;
-    // std::cout << " length " << _vec.size() << std::endl;
-    // this->_vec.resize(size);
-    // std::cout << " length " << _vec.size() << std::endl;
     for (int i(0); i < size; i++)
     {
         _vec.push_back(*n);
         n++;
     }
-    // if (this->_vec.size() < this->_size)
-    //     this->_vec.push_back(n);
-    // else
-    //     throw std::length_error("Store capacity is full !");
 }
 
 int     Span::shortestSpan()
